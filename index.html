@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optometry calculator hub</title>
+
+    <!-- MATERIALIZE CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+
+    <!-- AOS --> 
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="header scrollspy">
+        <div class="navbar-fixed">
+            <nav class="navbar">
+                <div class="nav-wrapper">
+                        <a href="#" class="brand-logo animate__animated animate__flash" > <img src="img/logo-removebg-preview.png" class="brand-img" /> </a>
+                        <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="30" height="30" x="0" y="10" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g transform="matrix(-1,0,0,1,24,0)"><path fill="#faa41f" fill-rule="evenodd" d="M3 6a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1zm0 6a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1zm0 6a1 1 0 0 1 1-1h5a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1z" clip-rule="evenodd" data-original="#000000" class="menu"></path></g></svg>
+                        </a>
+                        <ul  class="right hide-on-med-and-down">
+                            <li data-aos="fade-down" data-aos-duration="1000"><a href="#">Home</a></li>
+                            <li data-aos="fade-down" data-aos-duration="1200"><a href="#about-us">About Us</a></li>
+                            <li data-aos="fade-down" data-aos-duration="1500"><a href="#projects">Projects</a></li>
+                            <li data-aos="fade-down" data-aos-duration="1700"><a href="#Formulas">Formulas</a></li>
+                            <li data-aos="fade-down" data-aos-duration="1900"><a href="#footer">Contact Us</a></li>
+                        </ul>
+                </div>
+            </nav>
+        </div>  
+
+        <div class="progress">
+            <div class="determinate" id="determinate"></div>
+        </div>
+
+        <ul id="mobile-demo" class="sidenav" >
+            <div class="close-container sidenav-close">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="30" height="30" x="0" y="0" viewBox="0 0 348.333 348.334" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M336.559 68.611 231.016 174.165l105.543 105.549c15.699 15.705 15.699 41.145 0 56.85-7.844 7.844-18.128 11.769-28.407 11.769-10.296 0-20.581-3.919-28.419-11.769L174.167 231.003 68.609 336.563c-7.843 7.844-18.128 11.769-28.416 11.769-10.285 0-20.563-3.919-28.413-11.769-15.699-15.698-15.699-41.139 0-56.85l105.54-105.549L11.774 68.611c-15.699-15.699-15.699-41.145 0-56.844 15.696-15.687 41.127-15.687 56.829 0l105.563 105.554L279.721 11.767c15.705-15.687 41.139-15.687 56.832 0 15.705 15.699 15.705 41.145.006 56.844z" fill="#faa41f" data-original="#000000" class=""></path></g></svg>
+            </div>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about-us">About Us</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#Formulas">Formulas</a></li>
+            <li><a href="#footer">Contact Us</a></li>
+        </ul>
+
+        <div class="intro">
+            <div class="intro-content">
+                <p class="welcome-text">Welcome to </p>
+                <p class="quote">Optometry calculation solutions</p>
+                <a class="getQuote waves-effect waves-light btn-large modal-trigger" href="#modal1" style="background-color: #faa41f;">Feedback</a>
+                <p class="user">Number of users: <span id="user"></span> </p>
+            </div>
+                <img class="intro-img" src="img/20240220_214811_0000.png" alt="company logo" /> 
+        </div>
+    </div>
+
+    <!-- MODAL FOR GET QUOTE -->
+
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+          <div class="flex-container modal-responsive">
+            <img src="./img/paper-plane.jpg" alt="Contact us image" class="contact-us-image">
+            <div class="right-content">
+              <h4>Provide Feedback</h4>
+                <form action="">
+                    <div class="input-field">
+                        <label for="email">Email</label>
+                        <input id="email" type="email" required> 
+                    </div>
+                    <div class="input-field">
+                        <label for="requirement">Describe your Feedback</label>
+                        <textarea name="" class="materialize-textarea" id="requirement" required ></textarea>
+                    </div>
+                    
+                    <div class="">
+                        <button class="submit-btn waves-effect waves-light btn-small" onclick="sendemail()">Submit</button>
+                    </div>
+                </form>
+            </div>
+          </div>
+        </div>
+    </div>
+      
+
+
+
+    <!-- ABOUT-US-SECTION -->
+
+    <section id="about-us" class="scrollspy" data-aos="fade-right" data-aos-duration="1200" data-aos-once="true">
+
+        <div class="row container hoverable about-tab">
+            <div class="col s12">
+              <ul class="tabs">
+                <li class="tab col s6 l4 m4"><a class="active" href="#test1">About Us</a></li>
+                <li class="tab col s6 l4 m4"><a href="#test2">About calculators</a></li>
+                <li class="tab col s12 l4 m4"><a href="#test3">Instructions</a></li>
+              </ul>
+            </div>
+            <div id="test1" class="tab-content col s12 ">
+                <ul>
+                    <li style="list-style-type: disc;"><b>Creator:</b> Shivashangari, Master’s in Optometry.</li>
+                    <li style="list-style-type: disc;"><b>Tool Purpose:</b> Designed for precise optometry calculations.</li>
+                    <p style="font-weight: bold;">Benefits:</p>
+                    <li style="list-style-type: disc;">Time-Saving</li> 
+                    <li style="list-style-type: disc;">Accuracy</li> 
+                    <li style="list-style-type: disc;">User-Friendly</li> 
+                    <li style="list-style-type: disc;"><b>Mission:</b> Enhance efficiency and accuracy in optometry practices</li> 
+                    <li style="list-style-type: disc;"><b>Aknowladgement:</b> We extend our sincere thanks to Mr. Ramprasat Kanagaraj, Dean of Optometry Education and Ms. Preetha Ramprasat Associate Professorat at VIOR for thier guidance.</li>
+                </ul>
+            </div>
+            <div id="test2" class="tab-content col s12 ">
+                <ul>
+                    <li>Precision tools tailored for optometry calculations</li>
+                    <p style="font-weight: bold;">Categories include:</p>
+                    <li style="list-style-type: disc;">Calculations for Refraction(e.g., Visual acuities in 6 notations, Retinoscopy cross to prescription)</li>
+                    <li style="list-style-type: disc;">Binocular Vision and Accommodation (e.g., Sheard's criterion, AC/A ratio)</li>
+                    <li style="list-style-type: disc;">Contact Lens (e.g., Vertex distance calculation, LARS rule application)</li>
+                    <li style="list-style-type: disc;">Low Vision (e.g., Magnification for near, Kestenbaum rule)</li>
+                </ul>
+
+            </div>
+            <div id="test3" class="tab-content col s12">
+                <ol>
+                        1. Read the instructions and notes on each calculation tool. <br>
+                        2. Provide input for the mentioned units. <br>
+                        3. Include the sign (+/-) when required. <br>
+                        4. Clear all input fields before proceeding to the next calculation. <br>
+                        5. Do not disable notifications (Don't show again) for wrong input messages. <br>
+                        6. Please mention "+/- 0" if there's no input to provide.
+                </ol>  
+
+            </div> 
+          </div>
+        
+          <ul class="collapsible container hoverable" data-aos="fade-right" data-aos-duration="1200">
+            <li class="active">
+              <div class="collapsible-header waves-effect">About Us</div>
+              <div class="collapsible-body">
+                <span>
+                    <ul>
+                        <li style="list-style-type: disc;"><b>Creator:</b> Shivashangari, Master’s in Optometry.</li>
+                        <li style="list-style-type: disc;"><b>Tool Purpose:</b> Designed for precise optometry calculations.</li>
+                        <p style="font-weight: bold;">Benefits:</p>
+                        <li style="list-style-type: disc;">Time-Saving</li> 
+                        <li style="list-style-type: disc;">Accuracy</li> 
+                        <li style="list-style-type: disc;">User-Friendly</li> 
+                        <li style="list-style-type: disc;"><b>Mission:</b> Enhance efficiency and accuracy in optometry practices</li> 
+                    </ul> 
+                </span>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="collapsible-header waves-effect">About Calculators</div>
+              <div class="collapsible-body">
+                <ul>
+                    <li>Precision tools tailored for optometry calculations</li>
+                    <p style="font-weight: bold;">Categories include:</p>
+                    <li style="list-style-type: disc;">Refraction Calculations (e.g., Visual acuities in 6 notations, Retinoscopy cross to prescription)</li>
+                    <li style="list-style-type: disc;">Binocular Vision (e.g., Sheard's criterion, AC/A ratio)</li>
+                    <li style="list-style-type: disc;">Contact Lens (e.g., Vertex distance calculation, LARS rule application)</li>
+                    <li style="list-style-type: disc;">Low Vision (e.g., Magnification for near, Kestenbaum rule)</li>
+                </ul>
+            </div>
+            </li>
+            <li>
+              <div class="collapsible-header waves-effect">Instructions</div>
+              <div class="collapsible-body">
+                <ol>
+                    1. Read the instructions and notes on each calculation tool. <br>
+                    2. Provide input for the mentioned units. <br>
+                    3. Include the sign (+/-) when required. <br>
+                    4. Clear all input fields before proceeding to the next calculation. <br>
+                    5. Do not disable notifications (Don't show again) for wrong input messages. <br>
+                    6. Please mention "+/- 0" if there's no input to provide.
+                </ol>  
+                </div> 
+              </div>
+            </li>
+          </ul>
+
+    </section>
+
+
+    <!-- PROJECTS SECTION -->
+        <section id="projects" class="scrollspy">
+            <h3 class="phead">Inspired Creations</h3>
+            <div class="project-container">
+                <div class="project hoverable">
+                    <a href="optometry.html" onclick="userCount()">
+                        <div class="img-container">
+                            <img class="pimg" src="./img/optometry-general.png" alt="Project Image">
+                        </div>
+    
+                        <h4 class="project-title">Refraction Calculations calculators</h4>
+                        <p class="ptext">Here, You can find Toric transposition calculator &presbyopia add calculator based on amplitude of accommodation and more 
+                        </p>
+                    </a>
+                </div>
+                <div class="project hoverable">
+                    <a href="vision.html" onclick="userCount()">
+                        <div class="img-container">
+                            <img class="pimg" src="./img/binocular-vision.jpg" alt="Project Image">
+                        </div>
+                           
+                        <h4 class="project-title">Binocular vision & accommodation</h4>
+                        <p class="ptext">Here, You can find calculation 
+                            solutions for
+                            AC/A ratio
+                            Amplitude of accommodation
+                            Sheard's criterion
+                            Percival's criterion
+                            Hofstetter's formula and more
+                            </p>
+                    </a>
+                </div>
+                <div class="project hoverable">
+                    <a href="contactLens.html" onclick="userCount()">
+                        <div class="img-container">
+                            <img class="pimg" src="./img/contact-lens.png" alt="Project Image">
+                        </div>
+    
+                        <h4 class="project-title">Contact lens</h4>
+                        <p class="ptext">Here, You can find Vertex distance calculator, LARS rule applied final axis and more. </p>
+                    </a>
+                </div>
+                <div class="project hoverable">
+                    <a href="lowVision.html" onclick="userCount()">
+                        <div class="img-container">
+                            <img class="pimg" src="./img/low-vision.jpg" alt="Project Image">
+                        </div>
+                        
+                        <h4 class="project-title">Low Vision Calculator</h4>
+                        <p class="ptext">Here, You can find calculation solutions for Low vision Maginfication for distance Magnification for near
+                        </p>
+                    </a>
+                </div>
+                <!-- <div class="project hoverable">
+                    <a href="#">
+                        <div class="img-container">
+                            <img class="pimg" src="./img/project.jpg" alt="Project Image">
+                        </div>
+
+                        <h4 class="project-title">Hello world</h4>
+                        <p class="ptext">Shopify alternative with extended features. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi ex dolor ducimus reprehenderit quis accusantium rerum, ipsam laudantium tenetur veritatis.</p>
+                    </a>
+                </div>
+                <div class="project hoverable">
+                    <a href="#">
+                        <div class="img-container">
+                            <img class="pimg" src="./img/project.jpg" alt="Project Image">
+                        </div>
+                        
+                        <h4 class="project-title">Hello world</h4>
+                        <p class="ptext">Shopify alternative with extended features. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi ex dolor ducimus reprehenderit quis accusantium rerum, ipsam laudantium tenetur veritatis.</p>
+                    </a>
+                </div> -->
+                
+            </div>
+        </section>
+
+
+
+<!-- Formulas SECTION -->
+
+    <section id="Formulas" class="scrollspy" >
+        <div class="carousel" data-aos="zoom-in-down" data-aos-offset="-100" data-aos-once="true"  data-aos-duration="800">
+            <h1>Formulas</h1>
+            <a class="carousel-item" href="#one!">
+                <div class="testimonial">
+                    <div class="img-area">
+                        <img src="img/lars-formula.jpg">
+                    </div>
+                    <p>"LARS - Left Add Right Subtract" 
+                    </p>
+                    <h4>LARS</h4>
+                    <!-- <h5>Web Designer</h5> -->
+                </div>
+               
+            </a>
+            <a class="carousel-item" href="#one!">
+                <div class="testimonial">
+                    <div class="img-area">
+                        <img src="img/vertex-formula.png">
+                    </div>
+                    <p>"BVP = Fsp/(1-d(Fsp))
+                        And also
+                        Available for spherocyl 
+                        prescription "</p>
+                    <h4>Vertex Distance</h4>
+                    <!-- <h5>Web Designer</h5> -->
+                </div>
+               
+            </a>
+            <a class="carousel-item" href="#one!">
+                <div class="testimonial">
+                    <div class="img-area">
+                        <img src="img/spherical-formula.png">
+                    </div>
+                    <p>"Spherical equivalent = Sphere + Cylinder/2"</p>
+                    <h4>Spherical Equivalent </h4>
+                    <!-- <h5>Web Designer</h5> -->
+                </div>
+               
+            </a>
+            <a class="carousel-item" href="#one!">
+                <div class="testimonial">
+                    <div class="img-area">
+                        <img src="img/simpletrans-formula.jpg">
+                    </div>
+                    <p style="text-align: left;">"Step 1 : Sum of sphere & cylinder <br>
+                        Step 2 : Change the sign of cylinder <br>
+                        Step 3 : Change the axis to perpendicular"
+                       </p>
+                    <h4>Simple Transposition 
+                    </h4>
+                    <!-- <h5>Web Designer</h5> -->
+                </div>
+               
+            </a>
+            
+          </div>
+              
+    </section>
+
+    
+<!-- FOOTER -->
+
+    <section id="footer" class="scrollspy">
+        <footer>
+            <h3>Contact us at</h3>
+            <p>optometrycalculatorhub@gmail.com</p>
+                  <!-- <a href="">
+                    <box-icon class="icons" name='instagram' type='logo' ></box-icon>
+                  </a>   -->
+                  <a href="mailto:optometrycalcuatorhub@gmail.com">
+                    <box-icon class="icons" name='gmail' type='logo' ></box-icon>
+                  </a>
+                <!-- <a href="">
+                    <box-icon class="icons" name='linkedin' type='logo' ></box-icon>
+                </a> -->
+                    
+            <p>Copyright © OPTOCALC HUB</p>
+        </footer>
+    </section>
+
+    <!-- TO TOP BUTTON -->
+
+    <div class="fixed-action-btn" id="top-btn">
+        <a class="btn-floating btn-large" href="#">
+            <box-icon class="top-icon" name='chevron-up' type='solid' data-size="64" ></box-icon>
+        </a>
+    </div>
+
+
+
+
+    
+        <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init({
+            publicKey: "-6qhgxSPZg-h_QTcS",
+        });
+    })();
+    </script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optometry calculator hub</title>
+ 
+    <!-- MATERIALIZE CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <!-- AOS --> 
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="opt.css">
+   <link rel="stylesheet" href="lowVision.css">
+</head>
+<body>
+    <div class="header scrollspy">
+        <div class="navbar-fixed">
+            <nav class="navbar">
+                <div class="nav-wrapper">
+                        <a href="index.html#" class="brand-logo animate__animated animate__flash" > <img src="img/logo-removebg-preview.png" class="brand-img" /> </a>
+                        <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="30" height="30" x="0" y="10" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g transform="matrix(-1,0,0,1,24,0)"><path fill="#faa41f" fill-rule="evenodd" d="M3 6a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1zm0 6a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1zm0 6a1 1 0 0 1 1-1h5a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1z" clip-rule="evenodd" data-original="#000000" class="menu"></path></g></svg>
+                        </a>
+                        <ul  class="right hide-on-med-and-down">
+                            <li data-aos="fade-down" data-aos-duration="1000"><a href="index.html#">Home</a></li>
+                            <li data-aos="fade-down" data-aos-duration="1200"><a href="index.html#about-us">About Us</a></li>
+                            <li data-aos="fade-down" data-aos-duration="1500"><a href="index.html#projects">Projects</a></li>
+                            <li data-aos="fade-down" data-aos-duration="1700"><a href="index.html#Formulas">Formulas</a></li>
+                            <li data-aos="fade-down" data-aos-duration="1900"><a href="#footer">Contact Us</a></li>
+                        </ul>
+                </div>
+            </nav>
+        </div>  
+
+        <div class="progress">
+            <div class="determinate" id="determinate"></div>
+        </div>
+
+        <ul id="mobile-demo" class="sidenav" >
+            <div class="close-container sidenav-close">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="30" height="30" x="0" y="0" viewBox="0 0 348.333 348.334" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M336.559 68.611 231.016 174.165l105.543 105.549c15.699 15.705 15.699 41.145 0 56.85-7.844 7.844-18.128 11.769-28.407 11.769-10.296 0-20.581-3.919-28.419-11.769L174.167 231.003 68.609 336.563c-7.843 7.844-18.128 11.769-28.416 11.769-10.285 0-20.563-3.919-28.413-11.769-15.699-15.698-15.699-41.139 0-56.85l105.54-105.549L11.774 68.611c-15.699-15.699-15.699-41.145 0-56.844 15.696-15.687 41.127-15.687 56.829 0l105.563 105.554L279.721 11.767c15.705-15.687 41.139-15.687 56.832 0 15.705 15.699 15.705 41.145.006 56.844z" fill="#faa41f" data-original="#000000" class=""></path></g></svg>
+            </div>
+            <li><a href="index.html#">Home</a></li>
+            <li><a href="index.html#about-us">About </a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="index.html#Formulas">Formulas</a></li>
+            <li><a href="#footer">Contact Us</a></li>
+        </ul>
+    </div>
+
+<!-- DROPDOWN -->
+    <button class='dropdown-trigger btn waves-effect' href='#' data-target='dropdown1'><b>Other calculators</b></button>
+
+    <!-- Dropdown Structure -->
+    <ul id='dropdown1' class='dropdown-content' style="height: 15rem!important;">
+        <li>
+            <a onclick="changeContent('opt1')" href="#!">Magnification for distance</a>
+        </li>
+        <li>
+            <a onclick="changeContent('opt2')" href="#!">Magnification for near</a>
+        </li>
+        <li>
+            <a onclick="changeContent('opt3')" href="#!">Kestenbaum rule</a>
+        </li>
+    </ul>
+        
+
+
+
+
+
+
+<!-- CALCULATOR 1-->
+    <div class="opt1 opt" id="calculator-opt1">
+        <h3 class="center-align">Magnification Calculator(Distance)</h3>
+        <p class="instruction">
+            <span>Note:</span>Provide the Present Visual Acuity and Required Visual Acuity to calculate the Magnification for Distance<br>
+            <span>Instructions:</span> Select the Present Visual Acuity and Required Visual Acuity from the dropdown menu, then click 'Calculate'.
+        </p>
+    
+
+        <form id="presbyopicForm">
+            <label for="presentAcuity">Present Visual Acuity:</label>
+  <select id="presentAcuity" style="width: 20%;display: block;">
+    <!-- Options for visual acuity in feet --> 
+<option value="6/6">6/6</option>
+<option value="6/9">6/9</option>
+<option value="6/12">6/12</option>
+<option value="6/18">6/18</option>
+<option value="6/24">6/24</option>
+<option value="6/36">6/36</option>
+<option value="6/60">6/60</option>
+<option value="5/6">5/6</option>
+<option value="5/9">5/9</option>
+<option value="5/12">5/12</option>
+<option value="5/18">5/18</option>
+<option value="5/24">5/24</option>
+<option value="5/36">5/36</option>
+<option value="5/60">5/60</option>
+<option value="4/6">4/6</option>
+<option value="4/9">4/9</option>
+<option value="4/12">4/12</option>
+<option value="4/18">4/18</option>
+<option value="4/24">4/24</option>
+<option value="4/36">4/36</option>
+<option value="4/60">4/60</option>
+<option value="3/6">3/6</option>
+<option value="3/9">3/9</option>
+<option value="3/12">3/12</option>
+<option value="3/18">3/18</option>
+<option value="3/24">3/24</option>
+<option value="3/36">3/36</option>
+<option value="3/60">3/60</option>
+<option value="2/6">2/6</option>
+<option value="2/9">2/9</option>
+<option value="2/12">2/12</option>
+<option value="2/18">2/18</option>
+<option value="2/24">2/24</option>
+<option value="2/36">2/36</option>
+<option value="2/60">2/60</option>
+<option value="1/6">1/6</option>
+<option value="1/9">1/9</option>
+<option value="1/12">1/12</option>
+<option value="1/18">1/18</option>
+<option value="1/24">1/24</option>
+<option value="1/36">1/36</option>
+<option value="1/60">1/60</option>
+
+
+  </select>
+
+  <br>
+
+  <label for="requiredAcuity">Required Visual Acuity:</label>
+  <select id="requiredAcuity" style="display: block;width: 20%;">
+    <!-- Options for visual acuity in feet -->
+<option value="6/6">6/6</option>
+<option value="6/9">6/9</option>
+<option value="6/12">6/12</option>
+<option value="6/18">6/18</option>
+<option value="6/24">6/24</option>
+<option value="6/36">6/36</option>
+<option value="6/60">6/60</option>
+<option value="5/6">5/6</option>
+<option value="5/9">5/9</option>
+<option value="5/12">5/12</option>
+<option value="5/18">5/18</option>
+<option value="5/24">5/24</option>
+<option value="5/36">5/36</option>
+<option value="5/60">5/60</option>
+<option value="4/6">4/6</option>
+<option value="4/9">4/9</option>
+<option value="4/12">4/12</option>
+<option value="4/18">4/18</option>
+<option value="4/24">4/24</option>
+<option value="4/36">4/36</option>
+<option value="4/60">4/60</option>
+<option value="3/6">3/6</option>
+<option value="3/9">3/9</option>
+<option value="3/12">3/12</option>
+<option value="3/18">3/18</option>
+<option value="3/24">3/24</option>
+<option value="3/36">3/36</option>
+<option value="3/60">3/60</option>
+<option value="2/6">2/6</option>
+<option value="2/9">2/9</option>
+<option value="2/12">2/12</option>
+<option value="2/18">2/18</option>
+<option value="2/24">2/24</option>
+<option value="2/36">2/36</option>
+<option value="2/60">2/60</option>
+<option value="1/6">1/6</option>
+<option value="1/9">1/9</option>
+<option value="1/12">1/12</option>
+<option value="1/18">1/18</option>
+<option value="1/24">1/24</option>
+<option value="1/36">1/36</option>
+<option value="1/60">1/60</option>
+ 
+</select>
+
+  <br>
+</form>
+  <button onclick="calculateMagnification1()" class="waves-effect waves-light btn">Calculate</button>
+
+  <p id="output1" class="result"></p>
+
+
+    
+ 
+
+       
+        <div class="formula">
+            <p class="instruction"> <span >Formula</span> 
+                <ul class="instruction-formula">
+                    <li><strong> Magnification =</strong>(Required Acuity / Present Acuity)</li> 
+                </ul>
+            </p>
+        </div>
+    </div>
+
+
+
+<!-- CALCULATOR 2 -->
+
+    <div class="opt1 opt" id="calculator-opt2">
+        <h3 class="center-align">Magnification Calculator(Near)</h3>
+        <p class="instruction">
+            <span>Note:</span>Provide the Present Near Visual Acuity and Required Near Visual Acuity to calculate the Magnification for Near <br>
+            <span>Instructions:</span>Select the 'Present Near Visual Acuity' and 'Required Near Visual Acuity' from the dropdown menus, then click 'Calculate'
+        </p>
+    
+        
+        <form  id="presbyopicForm">
+            <fieldset>
+                <legend>Visual Acuity</legend>
+          
+                <label for="presentAcuity2">Present Near Visual Acuity:</label>
+                <select id="presentAcuity2" style="width: 20%;display: block;">
+                  <option value="N6">N6</option>
+                  <option value="N8">N8</option>
+                  <option value="N12">N12</option>
+                  <option value="N18">N18</option>
+                  <option value="N24">N24</option>
+                  <option value="N36">N36</option>
+                </select>
+          
+                <label for="requiredAcuity2">Required Near Visual Acuity:</label>
+                <select id="requiredAcuity2" style="width: 20%;display: block;">
+                  <option value="N6">N6</option>
+                  <option value="N8">N8</option>
+                  <option value="N12">N12</option>
+                  <option value="N18">N18</option>
+                  <option value="N24">N24</option>
+                  <option value="N36">N36</option>
+                </select>
+                <br><br>
+            </form>
+                <!-- Button to calculate magnification -->
+                <button type="button" onclick="calculateMagnification2()" class="waves-effect waves-light btn">Calculate</button>
+          
+              </fieldset>          
+          
+       
+
+        <output id="output2" class="result"></output>
+
+    
+
+        <div class="formula">
+            <p class="instruction">
+               <span>Formula:</span> <br>
+               <ul class="instruction-formula">
+                <li><strong>Magnification =</strong>(Present Near Visual Acuity / Required Near Visual Acuity)</li> 
+            </ul>
+        
+            </p>
+        </div>
+    </div>
+
+<!-- CALCUTOR 3 -->
+
+    <div class="opt1 opt" id="calculator-opt3">
+        <h3 class="center-align">Kestenbaum Rule Calculator</h3>
+        <p class="instruction">
+            <span>Note:</span>Provide the (BCVA) Best Corrected Visual Acuity for distance to calculate the magnification for near <br>
+            <span>Instructions:</span>Select the BCVA from the dropdown menu and click 'Calculate'.
+        </p>
+    
+        
+        <form  id="presbyopicForm">
+            <label for="visualAcuity3">Select BCVA for Distance:</label>
+<select id="visualAcuity3" style="width: 20%;display: block;"> 
+    <option value="6/18">6/18</option>
+    <option value="6/24">6/24</option> 
+    <option value="6/36">6/36</option>
+    <option value="6/60">6/60</option>
+    <option value="5/6">5/6</option>
+    <option value="5/9">5/9</option>
+    <option value="5/12">5/12</option>
+    <option value="5/18">5/18</option>
+    <option value="5/24">5/24</option>
+    <option value="5/36">5/36</option>
+    <option value="5/60">5/60</option>
+    <option value="4/6">4/6</option>
+    <option value="4/9">4/9</option>
+    <option value="4/12">4/12</option>
+    <option value="4/18">4/18</option>
+    <option value="4/24">4/24</option>
+    <option value="4/36">4/36</option>
+    <option value="4/60">4/60</option>
+    <option value="3/6">3/6</option>
+    <option value="3/9">3/9</option>
+    <option value="3/12">3/12</option>
+    <option value="3/18">3/18</option>  
+    <option value="3/24">3/24</option>
+    <option value="3/36">3/36</option>
+    <option value="3/60">3/60</option>
+</select>
+</form>
+<button onclick="calculateADD3()" class="waves-effect waves-light btn">Calculate ADD</button>
+
+<p id="result3" class="result"></p>
+<p id="addFor6by15" class="result"></p> <!-- New paragraph for displaying ADD for 6/15 -->
+
+      
+    
+
+       
+
+       
+
+        <div class="formula">
+            <p class="instruction">
+               <span>Formula:</span> <br>
+               <ul class="instruction-formula">
+                <li class="instruction-formula"><strong> Magnification = </strong>1 / (BCVA)</li> 
+                <p ><strong>Kestenbaum Rule:</strong> Followed to estimate the near add for initial trial based on Best Corrected Visual Acuity(BCVA) for distance.</p>
+            </ul>  
+            </p>
+        </div>
+    </div>
+
+
+
+    <!-- FOOTER -->
+
+    <section id="footer" class="scrollspy">
+        <footer>
+            <h3>Contact Us At</h3>
+            <p>optometrycalculatorhub@gmail.com</p>
+            
+                  <a href="mailto:optometrycalcuatorhub@gmail.com">
+                    <box-icon class="icons" name='gmail' type='logo' ></box-icon>
+                  </a>
+                    
+            <p>Copyright © OPTOCALC HUB</p>
+        </footer>
+    </section>
+
+    <!-- TO TOP BUTTON -->
+
+    <div class="fixed-action-btn" id="top-btn">
+        <a class="btn-floating btn-large" href="#">
+            <box-icon class="top-icon" name='chevron-up' type='solid' data-size="64" ></box-icon>
+        </a>
+    </div>
+
+
+
+
+    
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./index.js"></script>
+    <script src="./lowVision.js"></script>
+
+
+</body>
+</html>

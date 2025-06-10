@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optometry calculator hub</title>
+
+    <!-- MATERIALIZE CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <!-- AOS --> 
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="opt.css">
+
+    <style>
+        .tooltip {
+            position: fixed;
+            background-color: #f0f0f0;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 12px;
+            color: green;
+            display: none;
+        }
+        .error-message {
+            color: red;
+        }
+
+        .output-span {
+            font-weight: bold;
+        }
+        input[type="radio"], input[type="radio"] + label {
+            -webkit-appearance: radio !important;
+            -moz-appearance: radio !important;
+            appearance: radio !important;
+            position: static !important;
+            margin: 0 !important;
+            width: auto !important;
+            height: auto !important;
+            font-size: 1rem;
+            color: black;
+        }
+        [type="radio"]:checked,[type="radio"]:not(:checked)
+        {
+            opacity: 1;
+        }
+        label
+        {
+            color: black;
+            font-size: 1rem;
+        }
+    </style>
+
+
+
+</head>
+<body>
+    
+    <div class="header scrollspy">
+        <div class="navbar-fixed">
+            <nav class="navbar">
+                <div class="nav-wrapper">
+                        <a href="index.html#" class="brand-logo animate__animated animate__flash" > <img src="img/logo-removebg-preview.png" class="brand-img" /> </a>
+                        <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="30" height="30" x="0" y="10" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g transform="matrix(-1,0,0,1,24,0)"><path fill="#faa41f" fill-rule="evenodd" d="M3 6a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1zm0 6a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1zm0 6a1 1 0 0 1 1-1h5a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1z" clip-rule="evenodd" data-original="#000000" class="menu"></path></g></svg>
+                        </a>
+                        <ul  class="right hide-on-med-and-down">
+                            <li data-aos="fade-down" data-aos-duration="1000"><a href="index.html#">Home</a></li>
+                            <li data-aos="fade-down" data-aos-duration="1200"><a href="index.html#about-us">About Us</a></li>
+                            <li data-aos="fade-down" data-aos-duration="1500"><a href="index.html#projects">Projects</a></li>
+                            <li data-aos="fade-down" data-aos-duration="1700"><a href="index.html#Formulas">Formulas</a></li>
+                            <li data-aos="fade-down" data-aos-duration="1900"><a href="#footer">Contact Us</a></li>
+                        </ul>
+                </div>
+            </nav>
+        </div>  
+
+        <div class="progress">
+            <div class="determinate" id="determinate"></div>
+        </div>
+
+        <ul id="mobile-demo" class="sidenav" >
+            <div class="close-container sidenav-close">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="30" height="30" x="0" y="0" viewBox="0 0 348.333 348.334" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M336.559 68.611 231.016 174.165l105.543 105.549c15.699 15.705 15.699 41.145 0 56.85-7.844 7.844-18.128 11.769-28.407 11.769-10.296 0-20.581-3.919-28.419-11.769L174.167 231.003 68.609 336.563c-7.843 7.844-18.128 11.769-28.416 11.769-10.285 0-20.563-3.919-28.413-11.769-15.699-15.698-15.699-41.139 0-56.85l105.54-105.549L11.774 68.611c-15.699-15.699-15.699-41.145 0-56.844 15.696-15.687 41.127-15.687 56.829 0l105.563 105.554L279.721 11.767c15.705-15.687 41.139-15.687 56.832 0 15.705 15.699 15.705 41.145.006 56.844z" fill="#faa41f" data-original="#000000" class=""></path></g></svg>
+            </div>
+            <li><a href="index.html#">Home</a></li>
+            <li><a href="index.html#about-us">About </a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="index.html#Formulas">Formulas</a></li>
+            <li><a href="index.html#footer">Contact Us</a></li>
+        </ul>
+    </div>
+ 
+<!-- DROPDOWN -->
+    <button class='dropdown-trigger btn waves-effect' href='#' data-target='dropdown1'><b>Other calculators</b></button>
+
+    <!-- Dropdown Structure -->
+    <ul id='dropdown1' class='dropdown-content'>
+        <li>
+            <a onclick="changeContent('opt1')" href="#!">Retinoscopy Working Lens</a>
+        </li>
+        <li>
+            <a onclick="changeContent('opt2')" href="#!">Visual Acuity Notations Convertion</a>
+        </li>
+        <li>
+            <a href="#!" onclick="changeContent('opt3')">Simple transposition</a>
+        </li>
+        <li>
+            <a href="#!" onclick="changeContent('opt4')">Snellen Letter Size</a>
+        </li>
+        <li>
+            <a href="#!" onclick="changeContent('opt5')">Spherical equivalent</a>
+        </li>
+        <li>
+            <a href="#!" onclick="changeContent('opt6')">Retinoscopy Cross to  Prescription </a>
+        </li>
+        <!-- <li>
+            <a href="#!" onclick="changeContent('opt7')">Visual Acuity</a>
+        </li> -->
+    </ul>
+        
+
+
+
+
+
+
+<!-- CALCULATOR 1-->
+    <div class="opt1 opt" id="calculator-opt1">
+        <h3 class="center-align">Retinoscopy Working Lens</h3>
+
+        <p class="instruction"> <span>Note:</span> Provide your working distance (cm) from the patient's eye to the retinoscope while performing retinoscopy to calculate the compensating working lens</p>
+        <p class="instruction"><span>Instructions:</span> Simply enter the working distance (cm), then click 'Calculate'</p>
+
+    
+
+        <form id="presbyopicForm">
+            <label for="workingDistance">Working Distance (cm): </label>
+    <input list="WorkingDistanceOptions" id="workingDistance" oninput="filterOptions('workingDistance', 'WorkingDistanceOptions')" onmousemove="displayTooltip1(event, 'Range: 5 - 100cm')" onmouseout="hideTooltip1()">
+    <datalist id="WorkingDistanceOptions">
+      <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+    <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="23">23</option>
+    <option value="24">24</option>
+    <option value="25">25</option>
+    <option value="26">26</option>
+    <option value="27">27</option>
+    <option value="28">28</option>
+    <option value="29">29</option>
+    <option value="30">30</option>
+    <option value="31">31</option>
+    <option value="32">32</option>
+    <option value="33">33</option>
+    <option value="34">34</option>
+    <option value="35">35</option>
+    <option value="36">36</option>
+    <option value="37">37</option>
+    <option value="38">38</option>
+    <option value="39">39</option>
+    <option value="40">40</option>
+    <option value="41">41</option>
+    <option value="42">42</option>
+    <option value="43">43</option>
+    <option value="44">44</option>
+    <option value="45">45</option>
+    <option value="46">46</option>
+    <option value="47">47</option>
+    <option value="48">48</option>
+    <option value="49">49</option>
+    <option value="50">50</option>
+    <option value="51">51</option>
+    <option value="52">52</option>
+    <option value="53">53</option>
+    <option value="54">54</option>
+    <option value="55">55</option>
+    <option value="56">56</option>
+    <option value="57">57</option>
+    <option value="58">58</option>
+    <option value="59">59</option>
+    <option value="60">60</option>
+    <option value="61">61</option>
+    <option value="62">62</option>
+    <option value="63">63</option>
+    <option value="64">64</option>
+    <option value="65">65</option>
+    <option value="66">66</option>
+    <option value="67">67</option>
+    <option value="68">68</option>
+    <option value="69">69</option>
+    <option value="70">70</option>
+    <option value="71">71</option>
+    <option value="72">72</option>
+    <option value="73">73</option>
+    <option value="74">74</option>
+    <option value="75">75</option>
+    <option value="76">76</option>
+    <option value="77">77</option>
+    <option value="78">78</option>
+    <option value="79">79</option>
+    <option value="80">80</option>
+    <option value="81">81</option>
+    <option value="82">82</option>
+    <option value="83">83</option>
+    <option value="84">84</option>
+    <option value="85">85</option>
+    <option value="86">86</option>
+    <option value="87">87</option>
+    <option value="88">88</option>
+    <option value="89">89</option>
+    <option value="90">90</option>
+    <option value="91">91</option>
+    <option value="92">92</option>
+    <option value="93">93</option>
+    <option value="94">94</option>
+    <option value="95">95</option>
+    <option value="96">96</option>
+    <option value="97">97</option>
+    <option value="98">98</option>
+    <option value="99">99</option>
+    <option value="100">100</option>
+
+    </datalist>
+
+
+        </form>
+        <button onclick="calculatePower()" class="waves-effect waves-light btn">Calculate</button>
+        <br> <br>
+        <div id="result" class="result"></div>
+        
+
+    </HR>
+        <div class="formula">
+            <p class="instruction"> <span >Formula:</span></p>
+            <ul class="instruction-formula">
+                <li>Compensating lens for working distance  = 1/D</li>
+                <li>D = Distance from patient's eye to retinoscope(cm)</li>
+            </ul>
+          
+          
+        </div>
+        <div id="tooltip1" class="tooltip"></div>
+    </div>
+
+
+
+<!-- CALCULATOR 2 -->
+
+    <div class="opt1 opt" id="calculator-opt2">
+        <h3 class="center-align">Visual Acuity Notations Convertion</h3>
+        <p class="instruction"><span>Instructions:</span> Select any one line of visual acuity from any of the 6 dropdown menus; it will simultaneously display the corresponding visual acuity line for all other notations.</p>
+    
+         
+        <form  id="presbyopicForm">
+            <fieldset id="calculationForm">
+                <legend><b>Select from dropdown</b></legend>
+                <div class="dropdown-container">
+                    <label for="dropdowns1">Meters</label>
+                    <select id="dropdowns1" onchange="updateDropdowns(1)" style="display: block;width: 20%; height: 3rem!important;border: 1px solid #f2f2f2;">
+                        <option value="6/60">6/60</option>
+                        <option value="6/36">6/36</option>
+                        <option value="6/24">6/24</option> 
+                        <option value="6/18">6/18</option>
+                        <option value="6/12">6/12</option>
+                        <option value="6/9">6/9</option>
+                        <option value="6/6">6/6</option>
+                    </select>
+                </div>
+            
+                <div class="dropdown-container">
+                    <label for="dropdowns2">Feet</label>
+                    <select id="dropdowns2" onchange="updateDropdowns(2)" style="display: block;width: 20%;">
+                        <option value="20/200">20/200</option>
+                        <option value="20/120">20/120</option>
+                        <option value="20/80">20/80</option>
+                        <option value="20/60">20/60</option>
+                        <option value="20/40">20/40</option>
+                        <option value="20/30">20/30</option>
+                        <option value="20/20">20/20</option>
+                    </select>
+                </div>
+            
+                <div class="dropdown-container">
+                    <label for="dropdowns3">MAR</label>
+                    <select id="dropdowns3" onchange="updateDropdowns(3)" style="display: block;width: 20%;">
+                        <option value="10.0">10.0</option>
+                        <option value="6.0">6.0</option>
+                        <option value="4.0">4.0</option>
+                        <option value="3.0">3.0</option>
+                        <option value="2.0">2.0</option>
+                        <option value="1.5">1.5</option>
+                        <option value="1.0">1.0</option>
+                    </select>
+                </div>
+            
+                <div class="dropdown-container">
+                    <label for="dropdowns4">Log MAR</label>
+                    <select id="dropdowns4" onchange="updateDropdowns(4)" style="display: block;width: 20%;">
+                        <option value="1.0">1.0</option>
+                        <option value="0.78">0.78</option>
+                        <option value="0.60">0.60</option>
+                        <option value="0.47">0.47</option>
+                        <option value="0.3">0.3</option>
+                        <option value="0.17">0.17</option>
+                        <option value="0.0">0.0</option>
+                    </select>
+                </div>
+            
+                <div class="dropdown-container">
+                    <label for="dropdowns5">Decimal notation</label>
+                    <select id="dropdowns5" onchange="updateDropdowns(5)" style="display: block;width: 20%;">
+                        <option value="0.1">0.1</option>
+                        <option value="0.16">0.16</option>
+                        <option value="0.25">0.25</option>
+                        <option value="0.33">0.33</option>
+                        <option value="0.5">0.5</option>
+                        <option value="0.66">0.66</option>
+                        <option value="1.0">1.0</option>
+                    </select>
+                </div>
+            
+                <div class="dropdown-container">
+                    <label for="dropdowns6">Percentage</label>
+                    <select id="dropdowns6" onchange="updateDropdowns(6)" style="display: block;width: 20%;">
+                        <option value="10">10</option>
+                        <option value="16.67">16.67</option>
+                        <option value="25">25</option>
+                        <option value="33.33">33.33</option>
+                        <option value="50">50</option>
+                        <option value="66.67">66.67</option>
+                        <option value="100">100</option>
+                    </select> </fieldset>
+                
+                <b class="instruction" style="color: black;">How to convert?</b>
+                <p class="instruction-formula">1. Snellen Meter to Feet = MAR x 20</p>
+                <p class="instruction-formula">2. Snellen Meter to MAR = Divide the Denominator by Numerator of Snellen Meter notation</p>
+                <p class="instruction-formula">3. LogMAR = log₁₀(MAR) </p>
+                <p class="instruction-formula">4. Snellen Meter to Decimal = Divide the Numerator by Denominator of Snellen Meter notation</p>
+                <p class="instruction-formula">5. Snellen Decimal to percentage = Decimal * 100</p>
+            
+        </form>
+
+        
+      
+
+       
+    </div>
+
+
+<!-- CALCULATOR 3 -->
+
+    <div class="opt1 opt" id="calculator-opt3">
+        <h3 class="center-align">Simple Transposition Calculator</h3>
+
+        <p class="instruction">
+            <span>Note:</span>Provide a prescription to get the transposed format and determine the types of astigmatism <br>
+            <span>Instructions:</span> Enter the sphere, cylinder, and axis, then click 'Transpose'</p>
+        
+            <fieldset id="calculationForm">
+                <legend><b>Enter the prescription</b></legend>
+                <form id="calculatorForm">
+                    <label for="sphere">Sphere(D): </label>
+                    <input list="sphereOptions" id="sphere3" oninput="filterOptions('sphereInput', 'sphereOptions')" onmousemove="displayTooltip3(event, 'Range: -30D to +30D')" onmouseout="hideTooltip3()">
+                    <datalist id="sphereOptions">  
+            <option value="-30.00">-30.00</option>
+            <option value="-29.75">-29.75</option>
+            <option value="-29.50">-29.50</option>
+            <option value="-29.25">-29.25</option>
+            <option value="-29.00">-29.00</option>
+            <option value="-28.75">-28.75</option>
+            <option value="-28.50">-28.50</option>
+            <option value="-28.25">-28.25</option>
+            <option value="-28.00">-28.00</option>
+            <option value="-27.75">-27.75</option>
+            <option value="-27.50">-27.50</option>
+            <option value="-27.25">-27.25</option>
+            <option value="-27.00">-27.00</option>
+            <option value="-26.75">-26.75</option>
+            <option value="-26.50">-26.50</option>
+            <option value="-26.25">-26.25</option>
+            <option value="-26.00">-26.00</option>
+            <option value="-25.75">-25.75</option>
+            <option value="-25.50">-25.50</option>
+            <option value="-25.25">-25.25</option>
+            <option value="-25.00">-25.00</option>
+            <option value="-24.75">-24.75</option>
+            <option value="-24.50">-24.50</option>
+            <option value="-24.25">-24.25</option>
+            <option value="-24.00">-24.00</option>
+            <option value="-23.75">-23.75</option>
+            <option value="-23.50">-23.50</option>
+            <option value="-23.25">-23.25</option>
+            <option value="-23.00">-23.00</option>
+            <option value="-22.75">-22.75</option>
+            <option value="-22.50">-22.50</option>
+            <option value="-22.25">-22.25</option>
+            <option value="-22.00">-22.00</option>
+            <option value="-21.75">-21.75</option>
+            <option value="-21.50">-21.50</option>
+            <option value="-21.25">-21.25</option>
+            <option value="-21.00">-21.00</option>
+            <option value="-20.75">-20.75</option>
+            <option value="-20.50">-20.50</option>
+            <option value="-20.25">-20.25</option>
+            <option value="-20.00">-20.00</option>
+            <option value="-19.75">-19.75</option>
+            <option value="-19.50">-19.50</option>
+            <option value="-19.25">-19.25</option>
+            <option value="-19.00">-19.00</option>
+            <option value="-18.75">-18.75</option>
+            <option value="-18.50">-18.50</option>
+            <option value="-18.25">-18.25</option>
+            <option value="-18.00">-18.00</option>
+            <option value="-17.75">-17.75</option>
+            <option value="-17.50">-17.50</option>
+            <option value="-17.25">-17.25</option>
+            <option value="-17.00">-17.00</option>
+            <option value="-16.75">-16.75</option>
+            <option value="-16.50">-16.50</option>
+            <option value="-16.25">-16.25</option>
+            <option value="-16.00">-16.00</option>
+            <option value="-15.75">-15.75</option>
+            <option value="-15.50">-15.50</option>
+            <option value="-15.25">-15.25</option>
+            <option value="-15.00">-15.00</option>
+            <option value="-14.75">-14.75</option>
+            <option value="-14.50">-14.50</option>
+            <option value="-14.25">-14.25</option>
+            <option value="-14.00">-14.00</option>
+            <option value="-13.75">-13.75</option>
+            <option value="-13.50">-13.50</option>
+            <option value="-13.25">-13.25</option>
+            <option value="-13.00">-13.00</option>
+            <option value="-12.75">-12.75</option>
+            <option value="-12.50">-12.50</option>
+            <option value="-12.25">-12.25</option>
+            <option value="-12.00">-12.00</option>
+            <option value="-11.75">-11.75</option>
+            <option value="-11.50">-11.50</option>
+            <option value="-11.25">-11.25</option>
+            <option value="-11.00">-11.00</option>
+            <option value="-10.75">-10.75</option>
+            <option value="-10.50">-10.50</option>
+            <option value="-10.25">-10.25</option>
+            <option value="-10.00">-10.00</option>
+            <option value="-9.75">-9.75</option>
+            <option value="-9.50">-9.50</option>
+            <option value="-9.25">-9.25</option>
+            <option value="-9.00">-9.00</option>
+            <option value="-8.75">-8.75</option>
+            <option value="-8.50">-8.50</option>
+            <option value="-8.25">-8.25</option>
+            <option value="-8.00">-8.00</option>
+            <option value="-7.75">-7.75</option>
+            <option value="-7.50">-7.50</option>
+            <option value="-7.25">-7.25</option>
+            <option value="-7.00">-7.00</option>
+            <option value="-6.75">-6.75</option>
+            <option value="-6.50">-6.50</option>
+            <option value="-6.25">-6.25</option>
+            <option value="-6.00">-6.00</option>
+            <option value="-5.75">-5.75</option>
+            <option value="-5.50">-5.50</option>
+            <option value="-5.25">-5.25</option>
+            <option value="-5.00">-5.00</option>
+            <option value="-4.75">-4.75</option>
+            <option value="-4.50">-4.50</option>
+            <option value="-4.25">-4.25</option>
+            <option value="-4.00">-4.00</option>
+            <option value="-3.75">-3.75</option>
+            <option value="-3.50">-3.50</option>
+            <option value="-3.25">-3.25</option>
+            <option value="-3.00">-3.00</option>
+            <option value="-2.75">-2.75</option>
+            <option value="-2.50">-2.50</option>
+            <option value="-2.25">-2.25</option>
+            <option value="-2.00">-2.00</option>
+            <option value="-1.75">-1.75</option>
+            <option value="-1.50">-1.50</option>
+            <option value="-1.25">-1.25</option>
+            <option value="-1.00">-1.00</option>
+            <option value="-0.75">-0.75</option>
+            <option value="-0.50">-0.50</option>
+            <option value="-0.25">-0.25</option> 
+            <option value="+0.25">+0.25</option>
+            <option value="+0.50">+0.50</option>
+            <option value="+0.75">+0.75</option>
+            <option value="+1.00">+1.00</option>
+            <option value="+1.25">+1.25</option>
+            <option value="+1.50">+1.50</option>
+            <option value="+1.75">+1.75</option>
+            <option value="+2.00">+2.00</option>
+            <option value="+2.25">+2.25</option>
+            <option value="+2.50">+2.50</option>
+            <option value="+2.75">+2.75</option>
+            <option value="+3.00">+3.00</option>
+            <option value="+3.25">+3.25</option>
+            <option value="+3.50">+3.50</option>
+            <option value="+3.75">+3.75</option>
+            <option value="+4.00">+4.00</option>
+            <option value="+4.25">+4.25</option>
+            <option value="+4.50">+4.50</option>
+            <option value="+4.75">+4.75</option>
+            <option value="+5.00">+5.00</option>
+            <option value="+5.25">+5.25</option>
+            <option value="+5.50">+5.50</option>
+            <option value="+5.75">+5.75</option>
+            <option value="+6.00">+6.00</option>
+            <option value="+6.25">+6.25</option>
+            <option value="+6.50">+6.50</option>
+            <option value="+6.75">+6.75</option>
+            <option value="+7.00">+7.00</option>
+            <option value="+7.25">+7.25</option>
+            <option value="+7.50">+7.50</option>
+            <option value="+7.75">+7.75</option>
+            <option value="+8.00">+8.00</option>
+            <option value="+8.25">+8.25</option>
+            <option value="+8.50">+8.50</option>
+            <option value="+8.75">+8.75</option>
+            <option value="+9.00">+9.00</option>
+            <option value="+9.25">+9.25</option>
+            <option value="+9.50">+9.50</option>
+            <option value="+9.75">+9.75</option>
+            <option value="+10.00">+10.00</option>
+            <option value="+10.25">+10.25</option>
+            <option value="+10.50">+10.50</option>
+            <option value="+10.75">+10.75</option>
+            <option value="+11.00">+11.00</option>
+            <option value="+11.25">+11.25</option>
+            <option value="+11.50">+11.50</option>
+            <option value="+11.75">+11.75</option>
+            <option value="+12.00">+12.00</option>
+            <option value="+12.25">+12.25</option>
+            <option value="+12.50">+12.50</option>
+            <option value="+12.75">+12.75</option>
+            <option value="+13.00">+13.00</option>
+            <option value="+13.25">+13.25</option>
+            <option value="+13.50">+13.50</option>
+            <option value="+13.75">+13.75</option>
+            <option value="+14.00">+14.00</option>
+            <option value="+14.25">+14.25</option>
+            <option value="+14.50">+14.50</option>
+            <option value="+14.75">+14.75</option>
+            <option value="+15.00">+15.00</option>
+            <option value="+15.25">+15.25</option>
+            <option value="+15.50">+15.50</option>
+            <option value="+15.75">+15.75</option>
+            <option value="+16.00">+16.00</option>
+            <option value="+16.25">+16.25</option>
+            <option value="+16.50">+16.50</option>
+            <option value="+16.75">+16.75</option>
+            <option value="+17.00">+17.00</option>
+            <option value="+17.25">+17.25</option>
+            <option value="+17.50">+17.50</option>
+            <option value="+17.75">+17.75</option>
+            <option value="+18.00">+18.00</option>
+            <option value="+18.25">+18.25</option>
+            <option value="+18.50">+18.50</option>
+            <option value="+18.75">+18.75</option>
+            <option value="+19.00">+19.00</option>
+            <option value="+19.25">+19.25</option>
+            <option value="+19.50">+19.50</option>
+            <option value="+19.75">+19.75</option>
+            <option value="+20.00">+20.00</option>
+            <option value="+20.25">+20.25</option>
+            <option value="+20.50">+20.50</option>
+            <option value="+20.75">+20.75</option>
+            <option value="+21.00">+21.00</option>
+            <option value="+21.25">+21.25</option>
+            <option value="+21.50">+21.50</option>
+            <option value="+21.75">+21.75</option>
+            <option value="+22.00">+22.00</option>
+            <option value="+22.25">+22.25</option>
+            <option value="+22.50">+22.50</option>
+            <option value="+22.75">+22.75</option>
+            <option value="+23.00">+23.00</option>
+            <option value="+23.25">+23.25</option>
+            <option value="+23.50">+23.50</option>
+            <option value="+23.75">+23.75</option>
+            <option value="+24.00">+24.00</option>
+            <option value="+24.25">+24.25</option>
+            <option value="+24.50">+24.50</option>
+            <option value="+24.75">+24.75</option>
+            <option value="+25.00">+25.00</option>
+            <option value="+25.25">+25.25</option>
+            <option value="+25.50">+25.50</option>
+            <option value="+25.75">+25.75</option>
+            <option value="+26.00">+26.00</option>
+            <option value="+26.25">+26.25</option>
+            <option value="+26.50">+26.50</option>
+            <option value="+26.75">+26.75</option>
+            <option value="+27.00">+27.00</option>
+            <option value="+27.25">+27.25</option>
+            <option value="+27.50">+27.50</option>
+            <option value="+27.75">+27.75</option>
+            <option value="+28.00">+28.00</option>
+            <option value="+28.25">+28.25</option>
+            <option value="+28.50">+28.50</option>
+            <option value="+28.75">+28.75</option>
+            <option value="+29.00">+29.00</option>
+            <option value="+29.25">+29.25</option>
+            <option value="+29.50">+29.50</option>
+            <option value="+29.75">+29.75</option>
+            <option value="+30.00">+30.00</option>
+        
+        
+                    </datalist>
+        
+                    <label for="cylinder">Cylinder(D): </label>
+                    <input list="cylinderOptions" id="cyl3" oninput="filterOptions('cylinderInput', 'cylinderOptions')" onmousemove="displayTooltip3(event, 'Range: -30D to +30D')" onmouseout="hideTooltip3()">
+                    <datalist id="cylinderOptions">  
+            <option value="-30.00">-30.00</option>
+            <option value="-29.75">-29.75</option>
+            <option value="-29.50">-29.50</option>
+            <option value="-29.25">-29.25</option>
+            <option value="-29.00">-29.00</option>
+            <option value="-28.75">-28.75</option>
+            <option value="-28.50">-28.50</option>
+            <option value="-28.25">-28.25</option>
+            <option value="-28.00">-28.00</option>
+            <option value="-27.75">-27.75</option>
+            <option value="-27.50">-27.50</option>
+            <option value="-27.25">-27.25</option>
+            <option value="-27.00">-27.00</option>
+            <option value="-26.75">-26.75</option>
+            <option value="-26.50">-26.50</option>
+            <option value="-26.25">-26.25</option>
+            <option value="-26.00">-26.00</option>
+            <option value="-25.75">-25.75</option>
+            <option value="-25.50">-25.50</option>
+            <option value="-25.25">-25.25</option>
+            <option value="-25.00">-25.00</option>
+            <option value="-24.75">-24.75</option>
+            <option value="-24.50">-24.50</option>
+            <option value="-24.25">-24.25</option>
+            <option value="-24.00">-24.00</option>
+            <option value="-23.75">-23.75</option>
+            <option value="-23.50">-23.50</option>
+            <option value="-23.25">-23.25</option>
+            <option value="-23.00">-23.00</option>
+            <option value="-22.75">-22.75</option>
+            <option value="-22.50">-22.50</option>
+            <option value="-22.25">-22.25</option>
+            <option value="-22.00">-22.00</option>
+            <option value="-21.75">-21.75</option>
+            <option value="-21.50">-21.50</option>
+            <option value="-21.25">-21.25</option>
+            <option value="-21.00">-21.00</option>
+            <option value="-20.75">-20.75</option>
+            <option value="-20.50">-20.50</option>
+            <option value="-20.25">-20.25</option>
+            <option value="-20.00">-20.00</option>
+            <option value="-19.75">-19.75</option>
+            <option value="-19.50">-19.50</option>
+            <option value="-19.25">-19.25</option>
+            <option value="-19.00">-19.00</option>
+            <option value="-18.75">-18.75</option>
+            <option value="-18.50">-18.50</option>
+            <option value="-18.25">-18.25</option>
+            <option value="-18.00">-18.00</option>
+            <option value="-17.75">-17.75</option>
+            <option value="-17.50">-17.50</option>
+            <option value="-17.25">-17.25</option>
+            <option value="-17.00">-17.00</option>
+            <option value="-16.75">-16.75</option>
+            <option value="-16.50">-16.50</option>
+            <option value="-16.25">-16.25</option>
+            <option value="-16.00">-16.00</option>
+            <option value="-15.75">-15.75</option>
+            <option value="-15.50">-15.50</option>
+            <option value="-15.25">-15.25</option>
+            <option value="-15.00">-15.00</option>
+            <option value="-14.75">-14.75</option>
+            <option value="-14.50">-14.50</option>
+            <option value="-14.25">-14.25</option>
+            <option value="-14.00">-14.00</option>
+            <option value="-13.75">-13.75</option>
+            <option value="-13.50">-13.50</option>
+            <option value="-13.25">-13.25</option>
+            <option value="-13.00">-13.00</option>
+            <option value="-12.75">-12.75</option>
+            <option value="-12.50">-12.50</option>
+            <option value="-12.25">-12.25</option>
+            <option value="-12.00">-12.00</option>
+            <option value="-11.75">-11.75</option>
+            <option value="-11.50">-11.50</option>
+            <option value="-11.25">-11.25</option>
+            <option value="-11.00">-11.00</option>
+            <option value="-10.75">-10.75</option>
+            <option value="-10.50">-10.50</option>
+            <option value="-10.25">-10.25</option>
+            <option value="-10.00">-10.00</option>
+            <option value="-9.75">-9.75</option>
+            <option value="-9.50">-9.50</option>
+            <option value="-9.25">-9.25</option>
+            <option value="-9.00">-9.00</option>
+            <option value="-8.75">-8.75</option>
+            <option value="-8.50">-8.50</option>
+            <option value="-8.25">-8.25</option>
+            <option value="-8.00">-8.00</option>
+            <option value="-7.75">-7.75</option>
+            <option value="-7.50">-7.50</option>
+            <option value="-7.25">-7.25</option>
+            <option value="-7.00">-7.00</option>
+            <option value="-6.75">-6.75</option>
+            <option value="-6.50">-6.50</option>
+            <option value="-6.25">-6.25</option>
+            <option value="-6.00">-6.00</option>
+            <option value="-5.75">-5.75</option>
+            <option value="-5.50">-5.50</option>
+            <option value="-5.25">-5.25</option>
+            <option value="-5.00">-5.00</option>
+            <option value="-4.75">-4.75</option>
+            <option value="-4.50">-4.50</option>
+            <option value="-4.25">-4.25</option>
+            <option value="-4.00">-4.00</option>
+            <option value="-3.75">-3.75</option>
+            <option value="-3.50">-3.50</option>
+            <option value="-3.25">-3.25</option>
+            <option value="-3.00">-3.00</option>
+            <option value="-2.75">-2.75</option>
+            <option value="-2.50">-2.50</option>
+            <option value="-2.25">-2.25</option>
+            <option value="-2.00">-2.00</option>
+            <option value="-1.75">-1.75</option>
+            <option value="-1.50">-1.50</option>
+            <option value="-1.25">-1.25</option>
+            <option value="-1.00">-1.00</option>
+            <option value="-0.75">-0.75</option>
+            <option value="-0.50">-0.50</option>
+            <option value="-0.25">-0.25</option> 
+            <option value="+0.25">+0.25</option>
+            <option value="+0.50">+0.50</option>
+            <option value="+0.75">+0.75</option>
+            <option value="+1.00">+1.00</option>
+            <option value="+1.25">+1.25</option>
+            <option value="+1.50">+1.50</option>
+            <option value="+1.75">+1.75</option>
+            <option value="+2.00">+2.00</option>
+            <option value="+2.25">+2.25</option>
+            <option value="+2.50">+2.50</option>
+            <option value="+2.75">+2.75</option>
+            <option value="+3.00">+3.00</option>
+            <option value="+3.25">+3.25</option>
+            <option value="+3.50">+3.50</option>
+            <option value="+3.75">+3.75</option>
+            <option value="+4.00">+4.00</option>
+            <option value="+4.25">+4.25</option>
+            <option value="+4.50">+4.50</option>
+            <option value="+4.75">+4.75</option>
+            <option value="+5.00">+5.00</option>
+            <option value="+5.25">+5.25</option>
+            <option value="+5.50">+5.50</option>
+            <option value="+5.75">+5.75</option>
+            <option value="+6.00">+6.00</option>
+            <option value="+6.25">+6.25</option>
+            <option value="+6.50">+6.50</option>
+            <option value="+6.75">+6.75</option>
+            <option value="+7.00">+7.00</option>
+            <option value="+7.25">+7.25</option>
+            <option value="+7.50">+7.50</option>
+            <option value="+7.75">+7.75</option>
+            <option value="+8.00">+8.00</option>
+            <option value="+8.25">+8.25</option>
+            <option value="+8.50">+8.50</option>
+            <option value="+8.75">+8.75</option>
+            <option value="+9.00">+9.00</option>
+            <option value="+9.25">+9.25</option>
+            <option value="+9.50">+9.50</option>
+            <option value="+9.75">+9.75</option>
+            <option value="+10.00">+10.00</option>
+            <option value="+10.25">+10.25</option>
+            <option value="+10.50">+10.50</option>
+            <option value="+10.75">+10.75</option>
+            <option value="+11.00">+11.00</option>
+            <option value="+11.25">+11.25</option>
+            <option value="+11.50">+11.50</option>
+            <option value="+11.75">+11.75</option>
+            <option value="+12.00">+12.00</option>
+            <option value="+12.25">+12.25</option>
+            <option value="+12.50">+12.50</option>
+            <option value="+12.75">+12.75</option>
+            <option value="+13.00">+13.00</option>
+            <option value="+13.25">+13.25</option>
+            <option value="+13.50">+13.50</option>
+            <option value="+13.75">+13.75</option>
+            <option value="+14.00">+14.00</option>
+            <option value="+14.25">+14.25</option>
+            <option value="+14.50">+14.50</option>
+            <option value="+14.75">+14.75</option>
+            <option value="+15.00">+15.00</option>
+            <option value="+15.25">+15.25</option>
+            <option value="+15.50">+15.50</option>
+            <option value="+15.75">+15.75</option>
+            <option value="+16.00">+16.00</option>
+            <option value="+16.25">+16.25</option>
+            <option value="+16.50">+16.50</option>
+            <option value="+16.75">+16.75</option>
+            <option value="+17.00">+17.00</option>
+            <option value="+17.25">+17.25</option>
+            <option value="+17.50">+17.50</option>
+            <option value="+17.75">+17.75</option>
+            <option value="+18.00">+18.00</option>
+            <option value="+18.25">+18.25</option>
+            <option value="+18.50">+18.50</option>
+            <option value="+18.75">+18.75</option>
+            <option value="+19.00">+19.00</option>
+            <option value="+19.25">+19.25</option>
+            <option value="+19.50">+19.50</option>
+            <option value="+19.75">+19.75</option>
+            <option value="+20.00">+20.00</option>
+            <option value="+20.25">+20.25</option>
+            <option value="+20.50">+20.50</option>
+            <option value="+20.75">+20.75</option>
+            <option value="+21.00">+21.00</option>
+            <option value="+21.25">+21.25</option>
+            <option value="+21.50">+21.50</option>
+            <option value="+21.75">+21.75</option>
+            <option value="+22.00">+22.00</option>
+            <option value="+22.25">+22.25</option>
+            <option value="+22.50">+22.50</option>
+            <option value="+22.75">+22.75</option>
+            <option value="+23.00">+23.00</option>
+            <option value="+23.25">+23.25</option>
+            <option value="+23.50">+23.50</option>
+            <option value="+23.75">+23.75</option>
+            <option value="+24.00">+24.00</option>
+            <option value="+24.25">+24.25</option>
+            <option value="+24.50">+24.50</option>
+            <option value="+24.75">+24.75</option>
+            <option value="+25.00">+25.00</option>
+            <option value="+25.25">+25.25</option>
+            <option value="+25.50">+25.50</option>
+            <option value="+25.75">+25.75</option>
+            <option value="+26.00">+26.00</option>
+            <option value="+26.25">+26.25</option>
+            <option value="+26.50">+26.50</option>
+            <option value="+26.75">+26.75</option>
+            <option value="+27.00">+27.00</option>
+            <option value="+27.25">+27.25</option>
+            <option value="+27.50">+27.50</option>
+            <option value="+27.75">+27.75</option>
+            <option value="+28.00">+28.00</option>
+            <option value="+28.25">+28.25</option>
+            <option value="+28.50">+28.50</option>
+            <option value="+28.75">+28.75</option>
+            <option value="+29.00">+29.00</option>
+            <option value="+29.25">+29.25</option>
+            <option value="+29.50">+29.50</option>
+            <option value="+29.75">+29.75</option>
+            <option value="+30.00">+30.00</option>
+        
+        
+                    </datalist>
+        
+                    <label for="axis">Axis: </label>
+                    <input list="axisOptions" id="axis3" oninput="filterOptions('axisInput', 'axisOptions')" onmousemove="displayTooltip3(event, 'Range: 1 - 180')" onmouseout="hideTooltip3()">
+                    <datalist id="axisOptions"> 
+                        <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+            <option value="31">31</option>
+            <option value="32">32</option>
+            <option value="33">33</option>
+            <option value="34">34</option>
+            <option value="35">35</option>
+            <option value="36">36</option>
+            <option value="37">37</option>
+            <option value="38">38</option>
+            <option value="39">39</option>
+            <option value="40">40</option>
+            <option value="41">41</option>
+            <option value="42">42</option>
+            <option value="43">43</option>
+            <option value="44">44</option>
+            <option value="45">45</option>
+            <option value="46">46</option>
+            <option value="47">47</option>
+            <option value="48">48</option>
+            <option value="49">49</option>
+            <option value="50">50</option>
+            <option value="51">51</option>
+            <option value="52">52</option>
+            <option value="53">53</option>
+            <option value="54">54</option>
+            <option value="55">55</option>
+            <option value="56">56</option>
+            <option value="57">57</option>
+            <option value="58">58</option>
+            <option value="59">59</option>
+            <option value="60">60</option>
+            <option value="61">61</option>
+            <option value="62">62</option>
+            <option value="63">63</option>
+            <option value="64">64</option>
+            <option value="65">65</option>
+            <option value="66">66</option>
+            <option value="67">67</option>
+            <option value="68">68</option>
+            <option value="69">69</option>
+            <option value="70">70</option>
+            <option value="71">71</option>
+            <option value="72">72</option>
+            <option value="73">73</option>
+            <option value="74">74</option>
+            <option value="75">75</option>
+            <option value="76">76</option>
+            <option value="77">77</option>
+            <option value="78">78</option>
+            <option value="79">79</option>
+            <option value="80">80</option>
+            <option value="81">81</option>
+            <option value="82">82</option>
+            <option value="83">83</option>
+            <option value="84">84</option>
+            <option value="85">85</option>
+            <option value="86">86</option>
+            <option value="87">87</option>
+            <option value="88">88</option>
+            <option value="89">89</option>
+            <option value="90">90</option>
+            <option value="91">91</option>
+            <option value="92">92</option>
+            <option value="93">93</option>
+            <option value="94">94</option>
+            <option value="95">95</option>
+            <option value="96">96</option>
+            <option value="97">97</option>
+            <option value="98">98</option>
+            <option value="99">99</option>
+            <option value="100">100</option>
+            <option value="101">101</option>
+            <option value="102">102</option>
+            <option value="103">103</option>
+            <option value="104">104</option>
+            <option value="105">105</option>
+            <option value="106">106</option>
+            <option value="107">107</option>
+            <option value="108">108</option>
+            <option value="109">109</option>
+            <option value="110">110</option>
+            <option value="111">111</option>
+            <option value="112">112</option>
+            <option value="113">113</option>
+            <option value="114">114</option>
+            <option value="115">115</option>
+            <option value="116">116</option>
+            <option value="117">117</option>
+            <option value="118">118</option>
+            <option value="119">119</option>
+            <option value="120">120</option>
+            <option value="121">121</option>
+            <option value="122">122</option>
+            <option value="123">123</option>
+            <option value="124">124</option>
+            <option value="125">125</option>
+            <option value="126">126</option>
+            <option value="127">127</option>
+            <option value="128">128</option>
+            <option value="129">129</option>
+            <option value="130">130</option>
+            <option value="131">131</option>
+            <option value="132">132</option>
+            <option value="133">133</option>
+            <option value="134">134</option>
+            <option value="135">135</option>
+            <option value="136">136</option>
+            <option value="137">137</option>
+            <option value="138">138</option>
+            <option value="139">139</option>
+            <option value="140">140</option>
+            <option value="141">141</option>
+            <option value="142">142</option>
+            <option value="143">143</option>
+            <option value="144">144</option>
+            <option value="145">145</option>
+            <option value="146">146</option>
+            <option value="147">147</option>
+            <option value="148">148</option>
+            <option value="149">149</option>
+            <option value="150">150</option>
+            <option value="151">151</option>
+            <option value="152">152</option>
+            <option value="153">153</option>
+            <option value="154">154</option>
+            <option value="155">155</option>
+            <option value="156">156</option>
+            <option value="157">157</option>
+            <option value="158">158</option>
+            <option value="159">159</option>
+            <option value="160">160</option>
+            <option value="161">161</option>
+            <option value="162">162</option>
+            <option value="163">163</option>
+            <option value="164">164</option>
+            <option value="165">165</option>
+            <option value="166">166</option>
+            <option value="167">167</option>
+            <option value="168">168</option>
+            <option value="169">169</option>
+            <option value="170">170</option>
+            <option value="171">171</option>
+            <option value="172">172</option>
+            <option value="173">173</option>
+            <option value="174">174</option>
+            <option value="175">175</option>
+            <option value="176">176</option>
+            <option value="177">177</option>
+            <option value="178">178</option>
+            <option value="179">179</option>
+            <option value="180">180</option>
+        
+        
+                    </datalist>
+        
+                    <button type="button" class="waves-effect waves-light btn" onclick="transpose3()">Transpose</button>
+                </form>
+            </fieldset>
+        
+    
+        <h6 style="font-weight: bold;">Transposed Prescription:</h6>
+        <p class="result" id="transposedResult3"></p>
+
+        <h6 style="font-weight: bold;">Type of Astigmatism:</h6>
+        <p class="result" id="astigmatismType"></p>
+    
+        <div id="tooltip3" class="tooltip"></div>
+    
+    
+        <div class="formula">
+            <p class="">
+                <span class="instruction" style="color: black;">Steps for Simple Transposition:</span>
+        <ul class="instruction-formula">
+            <li><strong><span>Sum:</span></strong> Add the sphere and cylinder powers of the prescription to determine the new sphere power.</li>
+            <li><strong><span>Sign:</span></strong> Change the sign of the cylinder.</li>
+            <li><strong><span>Axis:</span></strong> Change the axis by 90 degrees. If the original axis is less than or equal to 90°, add 90° to the axis; if more than 90°, subtract 90°.</li>
+        </ul>
+            </p>
+        </div>
+    </div>
+
+
+
+<!-- calculator 4  -->
+
+    <div class="opt1 opt" id="calculator-opt4">
+        <h3>Snellen Letter Size</h3>
+        <p class="instruction">
+            <span>Note:</span>The height and width of the individual Snellen letters remain the same <br>
+            <span>Instructions:</span> Select the chart's distance and line of Snellen's chart from the dropdown menus, then click 'Calculate'
+        </p>
+    
+        <form id="presbyopicForm">
+            <label for="meters">Chart's Distance(m):</label><br>
+        <select id="meters" style="display: block;width: 20%;">
+            <option value="6">6</option>
+            <option value="5">5</option>
+            <option value="4">4</option>
+            <option value="3">3</option>
+            <option value="2">2</option>
+            <option value="1">1</option>
+        </select><br><br>
+        <label for="line">Select line:</label><br>
+        <select id="line" style="display: block;width: 20%;">
+            <option value="6/6">6/6</option>
+            <option value="6/9">6/9</option>
+            <option value="6/12">6/12</option>
+            <option value="6/18">6/18</option>
+            <option value="6/24">6/24</option>
+            <option value="6/36">6/36</option>
+            <option value="6/60">6/60</option>
+        </select><br><br>
+
+            <button type="button" class="waves-effect waves-light btn" onclick="calculate4()">Calculate</button>
+        </form>
+    
+       
+    <div id="result4" class="result" style="font-size:1.10rem ;"></div>
+    
+
+        <div class="formula">
+            <p class="instruction" style="color: black;"> <span>How to calculate?</span>
+                <ul class="instruction-formula">
+                    <strong>W = D x tanθ</strong>  
+                    <li>W = Height or width</li>
+                    <li>D = Denominator of the line</li>
+                    <li>θ = 5 (min of arc) </li>
+                    <li>tan5/60 ≈ 0.00145 </li>
+                </ul>         
+            </p>
+        </div>
+    </div>
+
+
+<!-- CALCULATOR 5 -->
+
+    <div class="opt1 opt" id="calculator-opt5">
+        <h3 class="center-align">Spherical Equivalent Calculator</h3>
+
+        <p class="instruction">
+            <span>Note:</span> Provide the sphere and cylinder power of a prescription (Axis not required), find the spherical equivalent here <br>
+            <span>Instructions:</span> 
+            Enter the sphere and cylinder power then click 'Calculate'
+        </p>
+    
+    
+        <form action="" id="presbyopicForm">
+            <label for="sphere5"> Sphere (D):</label>
+            <input list="sphereOptions" id="sphere5" oninput="filterOptions('sphere', 'sphereOptions')" onmousemove="displayTooltip(event, 'Range: -30D to +30D')" onmouseout="hideTooltip()" onblur="validateInput('sphere')">
+    <datalist id="sphereOptions"> 
+            <option value="-30.00">-30.00</option>
+    <option value="-29.75">-29.75</option>
+    <option value="-29.50">-29.50</option>
+    <option value="-29.25">-29.25</option>
+    <option value="-29.00">-29.00</option>
+    <option value="-28.75">-28.75</option>
+    <option value="-28.50">-28.50</option>
+    <option value="-28.25">-28.25</option>
+    <option value="-28.00">-28.00</option>
+    <option value="-27.75">-27.75</option>
+    <option value="-27.50">-27.50</option>
+    <option value="-27.25">-27.25</option>
+    <option value="-27.00">-27.00</option>
+    <option value="-26.75">-26.75</option>
+    <option value="-26.50">-26.50</option>
+    <option value="-26.25">-26.25</option>
+    <option value="-26.00">-26.00</option>
+    <option value="-25.75">-25.75</option>
+    <option value="-25.50">-25.50</option>
+    <option value="-25.25">-25.25</option>
+    <option value="-25.00">-25.00</option>
+    <option value="-24.75">-24.75</option>
+    <option value="-24.50">-24.50</option>
+    <option value="-24.25">-24.25</option>
+    <option value="-24.00">-24.00</option>
+    <option value="-23.75">-23.75</option>
+    <option value="-23.50">-23.50</option>
+    <option value="-23.25">-23.25</option>
+    <option value="-23.00">-23.00</option>
+    <option value="-22.75">-22.75</option>
+    <option value="-22.50">-22.50</option>
+    <option value="-22.25">-22.25</option>
+    <option value="-22.00">-22.00</option>
+    <option value="-21.75">-21.75</option>
+    <option value="-21.50">-21.50</option>
+    <option value="-21.25">-21.25</option>
+    <option value="-21.00">-21.00</option>
+    <option value="-20.75">-20.75</option>
+    <option value="-20.50">-20.50</option>
+    <option value="-20.25">-20.25</option>
+    <option value="-20.00">-20.00</option>
+    <option value="-19.75">-19.75</option>
+    <option value="-19.50">-19.50</option>
+    <option value="-19.25">-19.25</option>
+    <option value="-19.00">-19.00</option>
+    <option value="-18.75">-18.75</option>
+    <option value="-18.50">-18.50</option>
+    <option value="-18.25">-18.25</option>
+    <option value="-18.00">-18.00</option>
+    <option value="-17.75">-17.75</option>
+    <option value="-17.50">-17.50</option>
+    <option value="-17.25">-17.25</option>
+    <option value="-17.00">-17.00</option>
+    <option value="-16.75">-16.75</option>
+    <option value="-16.50">-16.50</option>
+    <option value="-16.25">-16.25</option>
+    <option value="-16.00">-16.00</option>
+    <option value="-15.75">-15.75</option>
+    <option value="-15.50">-15.50</option>
+    <option value="-15.25">-15.25</option>
+    <option value="-15.00">-15.00</option>
+    <option value="-14.75">-14.75</option>
+    <option value="-14.50">-14.50</option>
+    <option value="-14.25">-14.25</option>
+    <option value="-14.00">-14.00</option>
+    <option value="-13.75">-13.75</option>
+    <option value="-13.50">-13.50</option>
+    <option value="-13.25">-13.25</option>
+    <option value="-13.00">-13.00</option>
+    <option value="-12.75">-12.75</option>
+    <option value="-12.50">-12.50</option>
+    <option value="-12.25">-12.25</option>
+    <option value="-12.00">-12.00</option>
+    <option value="-11.75">-11.75</option>
+    <option value="-11.50">-11.50</option>
+    <option value="-11.25">-11.25</option>
+    <option value="-11.00">-11.00</option>
+    <option value="-10.75">-10.75</option>
+    <option value="-10.50">-10.50</option>
+    <option value="-10.25">-10.25</option>
+    <option value="-10.00">-10.00</option>
+    <option value="-9.75">-9.75</option>
+    <option value="-9.50">-9.50</option>
+    <option value="-9.25">-9.25</option>
+    <option value="-9.00">-9.00</option>
+    <option value="-8.75">-8.75</option>
+    <option value="-8.50">-8.50</option>
+    <option value="-8.25">-8.25</option>
+    <option value="-8.00">-8.00</option>
+    <option value="-7.75">-7.75</option>
+    <option value="-7.50">-7.50</option>
+    <option value="-7.25">-7.25</option>
+    <option value="-7.00">-7.00</option>
+    <option value="-6.75">-6.75</option>
+    <option value="-6.50">-6.50</option>
+    <option value="-6.25">-6.25</option>
+    <option value="-6.00">-6.00</option>
+    <option value="-5.75">-5.75</option>
+    <option value="-5.50">-5.50</option>
+    <option value="-5.25">-5.25</option>
+    <option value="-5.00">-5.00</option>
+    <option value="-4.75">-4.75</option>
+    <option value="-4.50">-4.50</option>
+    <option value="-4.25">-4.25</option>
+    <option value="-4.00">-4.00</option>
+    <option value="-3.75">-3.75</option>
+    <option value="-3.50">-3.50</option>
+    <option value="-3.25">-3.25</option>
+    <option value="-3.00">-3.00</option>
+    <option value="-2.75">-2.75</option>
+    <option value="-2.50">-2.50</option>
+    <option value="-2.25">-2.25</option>
+    <option value="-2.00">-2.00</option>
+    <option value="-1.75">-1.75</option>
+    <option value="-1.50">-1.50</option>
+    <option value="-1.25">-1.25</option>
+    <option value="-1.00">-1.00</option>
+    <option value="-0.75">-0.75</option>
+    <option value="-0.50">-0.50</option>
+    <option value="-0.25">-0.25</option> 
+    <option value="+0.25">+0.25</option>
+    <option value="+0.50">+0.50</option>
+    <option value="+0.75">+0.75</option>
+    <option value="+1.00">+1.00</option>
+    <option value="+1.25">+1.25</option>
+    <option value="+1.50">+1.50</option>
+    <option value="+1.75">+1.75</option>
+    <option value="+2.00">+2.00</option>
+    <option value="+2.25">+2.25</option>
+    <option value="+2.50">+2.50</option>
+    <option value="+2.75">+2.75</option>
+    <option value="+3.00">+3.00</option>
+    <option value="+3.25">+3.25</option>
+    <option value="+3.50">+3.50</option>
+    <option value="+3.75">+3.75</option>
+    <option value="+4.00">+4.00</option>
+    <option value="+4.25">+4.25</option>
+    <option value="+4.50">+4.50</option>
+    <option value="+4.75">+4.75</option>
+    <option value="+5.00">+5.00</option>
+    <option value="+5.25">+5.25</option>
+    <option value="+5.50">+5.50</option>
+    <option value="+5.75">+5.75</option>
+    <option value="+6.00">+6.00</option>
+    <option value="+6.25">+6.25</option>
+    <option value="+6.50">+6.50</option>
+    <option value="+6.75">+6.75</option>
+    <option value="+7.00">+7.00</option>
+    <option value="+7.25">+7.25</option>
+    <option value="+7.50">+7.50</option>
+    <option value="+7.75">+7.75</option>
+    <option value="+8.00">+8.00</option>
+    <option value="+8.25">+8.25</option>
+    <option value="+8.50">+8.50</option>
+    <option value="+8.75">+8.75</option>
+    <option value="+9.00">+9.00</option>
+    <option value="+9.25">+9.25</option>
+    <option value="+9.50">+9.50</option>
+    <option value="+9.75">+9.75</option>
+    <option value="+10.00">+10.00</option>
+    <option value="+10.25">+10.25</option>
+    <option value="+10.50">+10.50</option>
+    <option value="+10.75">+10.75</option>
+    <option value="+11.00">+11.00</option>
+    <option value="+11.25">+11.25</option>
+    <option value="+11.50">+11.50</option>
+    <option value="+11.75">+11.75</option>
+    <option value="+12.00">+12.00</option>
+    <option value="+12.25">+12.25</option>
+    <option value="+12.50">+12.50</option>
+    <option value="+12.75">+12.75</option>
+    <option value="+13.00">+13.00</option>
+    <option value="+13.25">+13.25</option>
+    <option value="+13.50">+13.50</option>
+    <option value="+13.75">+13.75</option>
+    <option value="+14.00">+14.00</option>
+    <option value="+14.25">+14.25</option>
+    <option value="+14.50">+14.50</option>
+    <option value="+14.75">+14.75</option>
+    <option value="+15.00">+15.00</option>
+    <option value="+15.25">+15.25</option>
+    <option value="+15.50">+15.50</option>
+    <option value="+15.75">+15.75</option>
+    <option value="+16.00">+16.00</option>
+    <option value="+16.25">+16.25</option>
+    <option value="+16.50">+16.50</option>
+    <option value="+16.75">+16.75</option>
+    <option value="+17.00">+17.00</option>
+    <option value="+17.25">+17.25</option>
+    <option value="+17.50">+17.50</option>
+    <option value="+17.75">+17.75</option>
+    <option value="+18.00">+18.00</option>
+    <option value="+18.25">+18.25</option>
+    <option value="+18.50">+18.50</option>
+    <option value="+18.75">+18.75</option>
+    <option value="+19.00">+19.00</option>
+    <option value="+19.25">+19.25</option>
+    <option value="+19.50">+19.50</option>
+    <option value="+19.75">+19.75</option>
+    <option value="+20.00">+20.00</option>
+    <option value="+20.25">+20.25</option>
+    <option value="+20.50">+20.50</option>
+    <option value="+20.75">+20.75</option>
+    <option value="+21.00">+21.00</option>
+    <option value="+21.25">+21.25</option>
+    <option value="+21.50">+21.50</option>
+    <option value="+21.75">+21.75</option>
+    <option value="+22.00">+22.00</option>
+    <option value="+22.25">+22.25</option>
+    <option value="+22.50">+22.50</option>
+    <option value="+22.75">+22.75</option>
+    <option value="+23.00">+23.00</option>
+    <option value="+23.25">+23.25</option>
+    <option value="+23.50">+23.50</option>
+    <option value="+23.75">+23.75</option>
+    <option value="+24.00">+24.00</option>
+    <option value="+24.25">+24.25</option>
+    <option value="+24.50">+24.50</option>
+    <option value="+24.75">+24.75</option>
+    <option value="+25.00">+25.00</option>
+    <option value="+25.25">+25.25</option>
+    <option value="+25.50">+25.50</option>
+    <option value="+25.75">+25.75</option>
+    <option value="+26.00">+26.00</option>
+    <option value="+26.25">+26.25</option>
+    <option value="+26.50">+26.50</option>
+    <option value="+26.75">+26.75</option>
+    <option value="+27.00">+27.00</option>
+    <option value="+27.25">+27.25</option>
+    <option value="+27.50">+27.50</option>
+    <option value="+27.75">+27.75</option>
+    <option value="+28.00">+28.00</option>
+    <option value="+28.25">+28.25</option>
+    <option value="+28.50">+28.50</option>
+    <option value="+28.75">+28.75</option>
+    <option value="+29.00">+29.00</option>
+    <option value="+29.25">+29.25</option>
+    <option value="+29.50">+29.50</option>
+    <option value="+29.75">+29.75</option>
+    <option value="+30.00">+30.00</option>
+
+    </datalist>
+
+    <label for="cylinder">Cylinder (D): </label>
+    <input list="cylinderOptions" id="cyl5" oninput="filterOptions('cylinder', 'cylinderOptions')" onmousemove="displayTooltip(event, 'Range: -30D to +30D')" onmouseout="hideTooltip()" onblur="validateInput('cylinder')">
+    <datalist id="cylinderOptions"> 
+            <option value="-30.00">-30.00</option>
+    <option value="-29.75">-29.75</option>
+    <option value="-29.50">-29.50</option>
+    <option value="-29.25">-29.25</option>
+    <option value="-29.00">-29.00</option>
+    <option value="-28.75">-28.75</option>
+    <option value="-28.50">-28.50</option>
+    <option value="-28.25">-28.25</option>
+    <option value="-28.00">-28.00</option>
+    <option value="-27.75">-27.75</option>
+    <option value="-27.50">-27.50</option>
+    <option value="-27.25">-27.25</option>
+    <option value="-27.00">-27.00</option>
+    <option value="-26.75">-26.75</option>
+    <option value="-26.50">-26.50</option>
+    <option value="-26.25">-26.25</option>
+    <option value="-26.00">-26.00</option>
+    <option value="-25.75">-25.75</option>
+    <option value="-25.50">-25.50</option>
+    <option value="-25.25">-25.25</option>
+    <option value="-25.00">-25.00</option>
+    <option value="-24.75">-24.75</option>
+    <option value="-24.50">-24.50</option>
+    <option value="-24.25">-24.25</option>
+    <option value="-24.00">-24.00</option>
+    <option value="-23.75">-23.75</option>
+    <option value="-23.50">-23.50</option>
+    <option value="-23.25">-23.25</option>
+    <option value="-23.00">-23.00</option>
+    <option value="-22.75">-22.75</option>
+    <option value="-22.50">-22.50</option>
+    <option value="-22.25">-22.25</option>
+    <option value="-22.00">-22.00</option>
+    <option value="-21.75">-21.75</option>
+    <option value="-21.50">-21.50</option>
+    <option value="-21.25">-21.25</option>
+    <option value="-21.00">-21.00</option>
+    <option value="-20.75">-20.75</option>
+    <option value="-20.50">-20.50</option>
+    <option value="-20.25">-20.25</option>
+    <option value="-20.00">-20.00</option>
+    <option value="-19.75">-19.75</option>
+    <option value="-19.50">-19.50</option>
+    <option value="-19.25">-19.25</option>
+    <option value="-19.00">-19.00</option>
+    <option value="-18.75">-18.75</option>
+    <option value="-18.50">-18.50</option>
+    <option value="-18.25">-18.25</option>
+    <option value="-18.00">-18.00</option>
+    <option value="-17.75">-17.75</option>
+    <option value="-17.50">-17.50</option>
+    <option value="-17.25">-17.25</option>
+    <option value="-17.00">-17.00</option>
+    <option value="-16.75">-16.75</option>
+    <option value="-16.50">-16.50</option>
+    <option value="-16.25">-16.25</option>
+    <option value="-16.00">-16.00</option>
+    <option value="-15.75">-15.75</option>
+    <option value="-15.50">-15.50</option>
+    <option value="-15.25">-15.25</option>
+    <option value="-15.00">-15.00</option>
+    <option value="-14.75">-14.75</option>
+    <option value="-14.50">-14.50</option>
+    <option value="-14.25">-14.25</option>
+    <option value="-14.00">-14.00</option>
+    <option value="-13.75">-13.75</option>
+    <option value="-13.50">-13.50</option>
+    <option value="-13.25">-13.25</option>
+    <option value="-13.00">-13.00</option>
+    <option value="-12.75">-12.75</option>
+    <option value="-12.50">-12.50</option>
+    <option value="-12.25">-12.25</option>
+    <option value="-12.00">-12.00</option>
+    <option value="-11.75">-11.75</option>
+    <option value="-11.50">-11.50</option>
+    <option value="-11.25">-11.25</option>
+    <option value="-11.00">-11.00</option>
+    <option value="-10.75">-10.75</option>
+    <option value="-10.50">-10.50</option>
+    <option value="-10.25">-10.25</option>
+    <option value="-10.00">-10.00</option>
+    <option value="-9.75">-9.75</option>
+    <option value="-9.50">-9.50</option>
+    <option value="-9.25">-9.25</option>
+    <option value="-9.00">-9.00</option>
+    <option value="-8.75">-8.75</option>
+    <option value="-8.50">-8.50</option>
+    <option value="-8.25">-8.25</option>
+    <option value="-8.00">-8.00</option>
+    <option value="-7.75">-7.75</option>
+    <option value="-7.50">-7.50</option>
+    <option value="-7.25">-7.25</option>
+    <option value="-7.00">-7.00</option>
+    <option value="-6.75">-6.75</option>
+    <option value="-6.50">-6.50</option>
+    <option value="-6.25">-6.25</option>
+    <option value="-6.00">-6.00</option>
+    <option value="-5.75">-5.75</option>
+    <option value="-5.50">-5.50</option>
+    <option value="-5.25">-5.25</option>
+    <option value="-5.00">-5.00</option>
+    <option value="-4.75">-4.75</option>
+    <option value="-4.50">-4.50</option>
+    <option value="-4.25">-4.25</option>
+    <option value="-4.00">-4.00</option>
+    <option value="-3.75">-3.75</option>
+    <option value="-3.50">-3.50</option>
+    <option value="-3.25">-3.25</option>
+    <option value="-3.00">-3.00</option>
+    <option value="-2.75">-2.75</option>
+    <option value="-2.50">-2.50</option>
+    <option value="-2.25">-2.25</option>
+    <option value="-2.00">-2.00</option>
+    <option value="-1.75">-1.75</option>
+    <option value="-1.50">-1.50</option>
+    <option value="-1.25">-1.25</option>
+    <option value="-1.00">-1.00</option>
+    <option value="-0.75">-0.75</option>
+    <option value="-0.50">-0.50</option>
+    <option value="-0.25">-0.25</option> 
+    <option value="+0.25">+0.25</option>
+    <option value="+0.50">+0.50</option>
+    <option value="+0.75">+0.75</option>
+    <option value="+1.00">+1.00</option>
+    <option value="+1.25">+1.25</option>
+    <option value="+1.50">+1.50</option>
+    <option value="+1.75">+1.75</option>
+    <option value="+2.00">+2.00</option>
+    <option value="+2.25">+2.25</option>
+    <option value="+2.50">+2.50</option>
+    <option value="+2.75">+2.75</option>
+    <option value="+3.00">+3.00</option>
+    <option value="+3.25">+3.25</option>
+    <option value="+3.50">+3.50</option>
+    <option value="+3.75">+3.75</option>
+    <option value="+4.00">+4.00</option>
+    <option value="+4.25">+4.25</option>
+    <option value="+4.50">+4.50</option>
+    <option value="+4.75">+4.75</option>
+    <option value="+5.00">+5.00</option>
+    <option value="+5.25">+5.25</option>
+    <option value="+5.50">+5.50</option>
+    <option value="+5.75">+5.75</option>
+    <option value="+6.00">+6.00</option>
+    <option value="+6.25">+6.25</option>
+    <option value="+6.50">+6.50</option>
+    <option value="+6.75">+6.75</option>
+    <option value="+7.00">+7.00</option>
+    <option value="+7.25">+7.25</option>
+    <option value="+7.50">+7.50</option>
+    <option value="+7.75">+7.75</option>
+    <option value="+8.00">+8.00</option>
+    <option value="+8.25">+8.25</option>
+    <option value="+8.50">+8.50</option>
+    <option value="+8.75">+8.75</option>
+    <option value="+9.00">+9.00</option>
+    <option value="+9.25">+9.25</option>
+    <option value="+9.50">+9.50</option>
+    <option value="+9.75">+9.75</option>
+    <option value="+10.00">+10.00</option>
+    <option value="+10.25">+10.25</option>
+    <option value="+10.50">+10.50</option>
+    <option value="+10.75">+10.75</option>
+    <option value="+11.00">+11.00</option>
+    <option value="+11.25">+11.25</option>
+    <option value="+11.50">+11.50</option>
+    <option value="+11.75">+11.75</option>
+    <option value="+12.00">+12.00</option>
+    <option value="+12.25">+12.25</option>
+    <option value="+12.50">+12.50</option>
+    <option value="+12.75">+12.75</option>
+    <option value="+13.00">+13.00</option>
+    <option value="+13.25">+13.25</option>
+    <option value="+13.50">+13.50</option>
+    <option value="+13.75">+13.75</option>
+    <option value="+14.00">+14.00</option>
+    <option value="+14.25">+14.25</option>
+    <option value="+14.50">+14.50</option>
+    <option value="+14.75">+14.75</option>
+    <option value="+15.00">+15.00</option>
+    <option value="+15.25">+15.25</option>
+    <option value="+15.50">+15.50</option>
+    <option value="+15.75">+15.75</option>
+    <option value="+16.00">+16.00</option>
+    <option value="+16.25">+16.25</option>
+    <option value="+16.50">+16.50</option>
+    <option value="+16.75">+16.75</option>
+    <option value="+17.00">+17.00</option>
+    <option value="+17.25">+17.25</option>
+    <option value="+17.50">+17.50</option>
+    <option value="+17.75">+17.75</option>
+    <option value="+18.00">+18.00</option>
+    <option value="+18.25">+18.25</option>
+    <option value="+18.50">+18.50</option>
+    <option value="+18.75">+18.75</option>
+    <option value="+19.00">+19.00</option>
+    <option value="+19.25">+19.25</option>
+    <option value="+19.50">+19.50</option>
+    <option value="+19.75">+19.75</option>
+    <option value="+20.00">+20.00</option>
+    <option value="+20.25">+20.25</option>
+    <option value="+20.50">+20.50</option>
+    <option value="+20.75">+20.75</option>
+    <option value="+21.00">+21.00</option>
+    <option value="+21.25">+21.25</option>
+    <option value="+21.50">+21.50</option>
+    <option value="+21.75">+21.75</option>
+    <option value="+22.00">+22.00</option>
+    <option value="+22.25">+22.25</option>
+    <option value="+22.50">+22.50</option>
+    <option value="+22.75">+22.75</option>
+    <option value="+23.00">+23.00</option>
+    <option value="+23.25">+23.25</option>
+    <option value="+23.50">+23.50</option>
+    <option value="+23.75">+23.75</option>
+    <option value="+24.00">+24.00</option>
+    <option value="+24.25">+24.25</option>
+    <option value="+24.50">+24.50</option>
+    <option value="+24.75">+24.75</option>
+    <option value="+25.00">+25.00</option>
+    <option value="+25.25">+25.25</option>
+    <option value="+25.50">+25.50</option>
+    <option value="+25.75">+25.75</option>
+    <option value="+26.00">+26.00</option>
+    <option value="+26.25">+26.25</option>
+    <option value="+26.50">+26.50</option>
+    <option value="+26.75">+26.75</option>
+    <option value="+27.00">+27.00</option>
+    <option value="+27.25">+27.25</option>
+    <option value="+27.50">+27.50</option>
+    <option value="+27.75">+27.75</option>
+    <option value="+28.00">+28.00</option>
+    <option value="+28.25">+28.25</option>
+    <option value="+28.50">+28.50</option>
+    <option value="+28.75">+28.75</option>
+    <option value="+29.00">+29.00</option>
+    <option value="+29.25">+29.25</option>
+    <option value="+29.50">+29.50</option>
+    <option value="+29.75">+29.75</option>
+    <option value="+30.00">+30.00</option>
+
+    </datalist>
+
+            
+            <br>
+        </form>
+        
+        <button class="waves-effect waves-light btn" onclick="calculateSphericalEquivalent()">Calculate</button>
+        
+        <br>
+        
+        <div id="output5" class="result">
+            <!-- Output will be displayed here -->
+        </div>
+    
+        <div id="sphereValidation5" class="error-message"></div>
+        <div id="cylinderValidation5" class="error-message"></div>     
+        
+        <div id="error" class="error-message"></div>
+    
+        <!- -->
+        <div id="tooltip5" class="tooltip"></div>
+        <div class="formula">
+            <p class="instruction-formula"> <span>Formula for Spherical Equivalent:</span>
+                 Spherical Equivalent = Sphere + (Cylinder / 2)</p>
+        </div>
+    </div>
+
+
+<!-- CALCULATOR 6 -->
+
+    <div class="opt1 opt" id="calculator-opt6">
+        <h3 class="center-align">Retinoscopy Prescription Converter</h3>
+        <p class="instruction">
+            <span>Note:</span> Provide the retinoscopy value (Gross/Net) to obtain the retinoscopy prescription here.<br>
+            <span>Instructions:</span> 
+            Select the method of retinoscopy, enter the neutral powers, choose 'Yes/No' for the working lens, then click 'Convert' <br>
+            <span>Note:</span> Provide '0' if there is no neutral power for any of the meridians.
+        </p>
+
+    
+        
+        <div class="input-group">
+            <label>Select Method:</label> <br> <br>
+            <input type="radio" id="method1" name="method" value="1" onclick="showInputFields('1')" checked>
+            <label for="method1">One Sphere and One Cylinder</label><br>
+            <input type="radio" id="method2" name="method" value="2" onclick="showInputFields('2')">
+            <label for="method2">Two Sphere Method</label><br>
+            <input type="radio" id="method3" name="method" value="3" onclick="showInputFields('3')">
+            <label for="method3">Two Cylinder Method</label><br>
+        </div>
+        <br>
+        <div id="inputFields">
+            <div class="input-group">
+                <label for="sphereInput">Sphere (DS)(IF NO MENTION '0'):</label>
+                <input type="text" id="sphereInput" name="sphereInput" placeholder="Range(-30 - +30)DS">
+            </div>
+            <div class="input-group">
+                <label for="cylinderInput">Cylinder (DC):</label>
+                <input type="text" id="cylinderInput" name="cylinderInput" placeholder="Range(-30 - +30)DC">
+            </div>
+            <div class="input-group">
+                <label for="axisInput">Cylinder Axis:</label>
+                <input type="text" id="axisInput" name="axisInput" placeholder="Range(1 - 180)">
+            </div>
+        </div>
+    
+        <div id="wdCompensation">
+            <div class="input-group">
+                <label>Are you using compensating(WD) lens, have removed it(Ex: +1.50DS) ?</label><br>
+                <input type="radio" id="wdYes" name="wdCompensation" value="Yes" checked>
+                <label for="wdYes">Yes</label>
+                <input type="radio" id="wdNo" name="wdCompensation" value="No">
+                <label for="wdNo">No</label>
+            </div>
+        </div>
+    
+        <button class="waves-effect waves-light btn" onclick="convertPrescription()">Convert</button>
+    
+        <div class=" result output" id="output6"></div>
+    
+        <h6 class="formula"><span>How it converts</span></h6>
+        <ul class="instruction-formula">
+            <li><strong>One Sphere and One Cylinder:</strong> The same will be a prescription.</li>
+            <li>To convert the Gross retinoscopy to Net retinoscopy of Spherical & Spherocylinder prescription, simply minus the 'working distance compensation power' from the Sphere power.</li>
+        </ul>
+    
+
+
+    </div>
+
+
+<!-- CALCULATOR 7 -->
+
+    <div class="opt1 opt" id="calculator-opt7">
+        <h3>Visual Acuity</h3>
+        <h5>Select 6 m value:</h5>
+
+        <form id="presbyopicForm">
+            <label for="sixM" style="font-weight: 500;
+            font-size: 15px;
+            color: black;">6 m:</label>
+            <select id="sixM" onchange="updateValues7()" style="display: block;width: 20%;">
+                <option value="6/6">6/6</option>
+                <option value="6/9">6/9</option>
+                <option value="6/12">6/12</option>
+                <option value="6/18">6/18</option>
+                <option value="6/24">6/24</option>
+                <option value="6/30">6/30</option>
+                <option value="6/36">6/36</option>
+                <option value="6/60">6/60</option>
+                <option value="5/6">5/6</option>
+                <option value="5/9">5/9</option>
+                <option value="5/12">5/12</option>
+                <option value="5/18">5/18</option>
+                <option value="5/24">5/24</option>
+                <option value="5/30">5/30</option>
+                <option value="5/36">5/36</option>
+                <option value="5/60">5/60</option>
+                <option value="4/6">4/6</option>
+                <option value="4/9">4/9</option>
+                <option value="4/12">4/12</option>
+                <option value="4/18">4/18</option>
+                <option value="4/24">4/24</option>
+                <option value="4/30">4/30</option>
+                <option value="4/36">4/36</option>
+                <option value="4/60">4/60</option>
+                <option value="3/6">3/6</option>
+                <option value="3/9">3/9</option>
+                <option value="3/12">3/12</option>
+                <option value="3/18">3/18</option>
+                <option value="3/24">3/24</option>
+                <option value="3/30">3/30</option>
+                <option value="3/36">3/36</option>
+                <option value="3/60">3/60</option>
+                <option value="2/6">2/6</option>
+                <option value="2/9">2/9</option>
+                <option value="2/12">2/12</option>
+                <option value="2/18">2/18</option>
+                <option value="2/24">2/24</option>
+                <option value="2/30">2/30</option>
+                <option value="2/36">2/36</option>
+                <option value="2/60">2/60</option>
+                <option value="1/6">1/6</option>
+                <option value="1/9">1/9</option>
+                <option value="1/12">1/12</option>
+                <option value="1/18">1/18</option>
+                <option value="1/24">1/24</option>
+                <option value="1/30">1/30</option>
+                <option value="1/36">1/36</option>
+                <option value="1/60">1/60</option>
+            </select>
+        </form>
+    
+        <h6>Result:</h6>
+        <p id="result7" style="font-size: 20px;"></p>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- FOOTER -->
+
+    <section id="footer" class="scrollspy">
+        <footer>
+            <h3>Contact Us At</h3>
+            <p>
+                optometrycalculatorhub@gmail.com</p>
+            
+                  <a href="">
+                    <box-icon class="icons" name='gmail' type='logo' ></box-icon>
+                  </a>
+                    
+            <p>Copyright © OPTOCALC HUB</p>
+        </footer>
+    </section>
+
+    <!-- TO TOP BUTTON -->
+
+    <div class="fixed-action-btn" id="top-btn">
+        <a class="btn-floating btn-large" href="#">
+            <box-icon class="top-icon" name='chevron-up' type='solid' data-size="64" ></box-icon>
+        </a>
+    </div>
+
+
+
+
+    
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- <script src="./index.js"></script> -->
+    <script src="./optometry.js"></script>
+
+
+</body>
+</html>

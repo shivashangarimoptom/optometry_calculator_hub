@@ -1,0 +1,355 @@
+*
+{
+    font-family: "Outfit", sans-serif;
+}
+/* HEDAER SECTION */
+.header
+{
+    background: #eaedf2;
+}
+body
+{
+    overflow-x: hidden;
+}
+.navbar{
+    background:#eaedf2 ;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-weight: 500;
+}
+nav ul li a{
+    color: black;
+    font-size: 15px;
+}
+nav img
+{
+    margin-top: 1rem;
+    width: 3.15rem;
+    height: auto;
+    margin-left: 2rem;
+}
+
+nav ul li :hover
+{
+    border-radius: 20px;
+    background-color: #faa41f;
+    display: inline; 
+    font-weight: bold;
+    color: #fff;
+    padding: 7px;
+}
+nav ul a
+{
+    transition: none ;
+    -webkit-transition: none;
+}
+
+.btn
+{
+    font-family: 'Outfit','sans-serif';
+}
+
+/* FOOTER */
+
+#footer
+{
+    margin-top: 3rem;
+    padding: 3% 15%;
+    background-color: #EAEDF2;
+    text-align: center;
+}
+.btn
+.icons
+{
+    margin: 1.25rem;
+}
+.top-icon
+{
+    width: 3rem;
+    height: 4rem;
+}
+
+#modal1
+{
+    border-radius: 20px;
+}
+.modal .modal-content
+{
+    overflow: hidden;
+    background-color: #eaedf2;
+}
+
+.submit-btn
+{
+    border-radius: 20px;
+    background-color: #eaedf2;
+    color: black;
+    font-weight: 500;
+}
+.submit-btn:hover 
+{
+    border-radius: 20px;
+    background-color: #000;
+    color: white;
+    font-weight: 500;
+}
+.submit-btn:focus
+{
+    background-color: #000;
+    color: white;
+}
+
+.flex-container
+{
+    display: flex;
+    align-items: center;
+}
+
+.right-content
+{
+    flex-grow: 1;
+}
+
+#modal1 h4
+{
+     text-align: center;
+}
+
+.input-field>label
+{
+    font-weight: bold;
+}
+
+.contact-us-image
+{
+    width: 20rem;
+    height: auto;
+    margin-right: 5rem;
+}
+
+/* SCROLL PROGRESS BAR */
+
+.progress
+{
+    margin: 0;
+    position: fixed;
+    z-index: 1;
+    background-color: #EAEDF2;
+    color: #faa41f;
+}
+
+.determinate
+{
+    width: 0%;
+    position: fixed;
+}
+
+.progress .determinate
+{
+    background-color: #faa41f;
+}
+
+/* TO TOP BUTTON */
+
+.fixed-action-btn 
+{
+    visibility: hidden;
+    opacity: 0;
+}
+.fixed-action-btn.show
+{
+    visibility: visible;
+    opacity: 1;
+}
+.btn-floating
+{
+    background-color: #e2e8f0;
+}
+.btn-floating:hover
+{
+    background-color: #e4b534;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.opt
+{
+    margin: 1rem 22rem;
+    padding: 2rem;
+    border: 5px solid orange;
+    border-radius: 20px;
+}
+
+hr
+{
+    margin: 2rem auto;
+    width: 40%;
+    border-top: 3px dotted#808080;
+}
+.instruction
+{
+    color: blue;
+    font-size: 20px;
+}
+
+#presbyopicForm 
+{
+    margin:2rem auto;
+}
+
+#presbyopicForm input
+{
+    width: 20%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: white;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    height: 2rem;
+    border-radius: 4px;
+    display: block;
+}
+#presbyopicForm input :active
+{
+    border: 1px solid #ccc; /* Reset border on focus */
+    box-shadow: none; /* Remove box-shadow on focus */
+}
+#presbyopicForm label
+{
+    font-weight: 500;
+    font-size: 15px;
+    color: black;
+}
+.buttons
+{
+    display: flex;
+    gap: 50px;
+    button
+    {
+        font-weight: bold;
+    }
+}
+.waves-effect,.btn:hover,.btn:focus {
+    background-color: green;
+}
+
+.formula
+{
+    margin: 1rem;
+    
+}
+
+span{
+    display: block;
+    color: black;
+}
+
+.dropdown-trigger
+{
+    margin-top: 2rem;
+    margin-left:25%;
+}
+
+#dropdown1
+{
+    width: 15rem!important;
+    height: 30rem!important;
+    border: 5px solid #faa41f;
+    border-radius: 3px;
+}
+.dropdown-content li>a
+{
+    color: black;
+    font-weight: 400;
+    font-size: 20px;
+    border-bottom: 3px solid #faa41f;
+}
+
+.dropdown-content li:last-child a
+{
+    border: none;
+}
+
+
+.result
+{
+    font-size: 16px;
+    color:#be2828;
+}
+
+/* .dropdown-content li>a:hover, .dropdown-content li.active
+{
+    background-color: #faa41f;
+    color: white;
+}
+ */
+
+/* FORMULA HR */
+
+#formula-hr
+{
+    width: 20%;
+    border: none;
+    height: 1px;
+    background-color: #000; /* Default color might be different across browsers */
+    margin:0;
+}
+
+
+
+
+
+
+@media screen and (max-width:1473px) {
+    .opt
+    {
+        margin: 1rem 5rem;
+    }
+    .buttons
+    {
+        flex-direction: column;
+        width: 70%;
+    }
+}
+@media screen and (max-width:600px) {
+    .opt
+    {
+        margin: 1rem ;
+    }
+    .buttons
+    {
+        flex-direction: column;
+        /* width: 70%; */
+    }
+    #presbyopicForm input
+    {
+        width: 60%;
+    }
+    select
+    {
+        width: 60%!important;
+    }
+    .formula
+    {
+        margin: 1rem;
+    }
+    .center-align
+    {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+}
